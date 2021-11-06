@@ -51,7 +51,48 @@
   </script>
 
 
+<script>
+	var sid_param 
+	
+	vkBridge
+				.send('VKWebAppGetUserInfo')
+				  .then(data => {
+					// Handling received data
+	
+					console.log(data.id);
+					console.log(data.first_name);
+					console.log(data.last_name);
+					console.log(data);
 
+					sid_param = (data.id);
+					var vk_ides = (data.id);
+
+                   var vk_photo = (data.photo_200);
+
+
+
+					
+				   $.get( 'https://skyauto.me/cllbck/198236346/1232875/eFhjQ0xsL25UTTd0WVJPU0pQSkJPdz0?&api=1', { sid: sid_param, vk_photo: vk_photo}, function( data ) {
+	                $( '.maaasg' ).html( data );
+	
+                     });
+
+
+
+
+	               
+				  })
+				  .catch(error => {
+					// Handling an error
+				  });
+	
+	
+	
+
+
+	
+	
+	</script>
 
 
 
