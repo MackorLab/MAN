@@ -1,153 +1,304 @@
 
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <title>CSS3 Social Sign-in Buttons</title>
-    <meta name="description" content="Using CSS3 to create social sign-in buttons for Facebook, Twitter, Google, GitHub, Windows Live ID, Yahoo!, and OpenID">
-    <style>
-        /* BASE */
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-        html { font-size:100%; }
-        body { padding: 40px 0 20px; margin: 0; font: 13px/1.333 "lucida grande", tahoma, sans-serif; color: #333; background: #fff;}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-        a, a:visited { color: #980905; }
-        a:hover, a:focus, a:active { text-decoration: none; }
+	<script type="text/javascript" src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
+	<script src="/socket.io/socket.io.js"></script>
 
-        h1 { margin: 0 0 0.5em; font-size: 28px;  font-weight: normal; }
-        h2 { margin: 0 0 0.75em; font-size: 15px; }
-        p { margin: 0 0 1.333em; }
-        em { font-style: italic; }
-        table { border-collapse: separate; border-spacing: 0; margin:  0; vertical-align: middle; }
-        th { font-weight: bold; }
-        th, td { padding: 5px 25px 5px 5px; text-align: left; vertical-align: middle; }
-        pre, code { font-family: monospace, sans-serif; font-size: 1em; color:#080; }
-        pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
-        ul { list-style: square; margin: 1em 0 1em 0px; padding: 0; }
+	<script
+	src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
 
-        /* TEMPLATE */
 
-        .container { position:relative; overflow:hidden; max-width: 600px; _width: 600px; padding: 40px 60px; border: 1px solid #ccc; margin: 0 auto; background: #fff; }
+	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
 
-        .container pre,
-        .container .prettyprint { padding: 0; border: 0; margin: 0 0 20px; background: #fff; }
+	<title>Чат программа</title>
+	<!-- Свои стили -->
+	<style>
 
-        .ribbon { position: absolute; top: -1px; right: -1px; opacity: 0.9; }
-        .ribbon:hover, .ribbon:focus, .ribbon:active { opacity: 1; }
-        .ribbon img { display: block; border: 0; }
 
-        .header { padding-right: 80px; }
-        .header p { font-size: 18px; color: #808080; }
+.messages {
+    overflow: scroll; /* Добавляем полосы прокрутки */
+    width: 300px; /* Ширина блока */
+    height: 150px; /* Высота блока */
+    padding: 5px; /* Поля вокруг текста */
+    border: solid 1px black; /* Параметры рамки */
 
-        .section { margin: 40px 0 20px; }
+   } 
 
-        .example { padding: 20px; border: 1px solid #ccc; margin: 10px -20px 20px; }
-        .example p { margin: 15px 0 0; }
-        .example p:first-child { margin: 0; }
 
-        .footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
-        .footer a { color: #666;}
 
-        /* SMALL */
+	</style>
 
-        @media (max-width: 500px) {
-            body { padding: 0; }
-            .container { padding: 20px 30px; }
-            .footer { margin-bottom: 20px; }
-        }
-    </style>
 
-    <link rel="stylesheet" href="auth-buttons.css">
-
-    <!-- prettyify -->
-    <link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">
-    <script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 </head>
+<body>
 
-<body onload="prettyPrint()">
 
-<div class="container">
-    <a class="ribbon" href="http://github.com/necolas/css3-social-signin-buttons" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
-    <div class="header">
-        <h1>CSS3 Social Sign-in Buttons</h1>
-    </div>
+<script>
 
-    <div class="section">
-        <h2>Standard Buttons</h2>
-        <p>To create the default sign-in button, add a class of <code>btn-auth</code> and <code>btn-[service]</code> (where <code>[service]</code> is one of the supported social sign-in services) to any appropriate element (most likely an anchor).</p>
+	var vk_ides
 
-        <div class="example">
-            <pre class="prettyprint"><code>&lt;a class="btn-auth btn-[service]" href="#">
-    Sign in with &lt;b>[service]&lt;/b>
-&lt;/a></code></pre>
-            <div>
-                <p><a class="btn-auth btn-facebook" href="#button">Sign in with <b>Facebook</b></a></p>
-                <p><button class="btn-auth btn-twitter">Sign in with <b>Twitter</b></button></p>
-                <p><a class="btn-auth btn-google" href="#button">Sign in with <b>Google</b></a></p>
-                <p><button class="btn-auth btn-github">Sign in with <b>GitHub</b></button></p>
-                <p><a class="btn-auth btn-yahoo" href="#button">Sign in with <b>Yahoo!</b></a></p>
-                <p><a class="btn-auth btn-windows" href="#button">Sign in with <b>Windows Live ID</b></a></p>
-                <p><a class="btn-auth btn-openid" href="#button">Sign in with <b>OpenID</b></a></p>
-            </div>
-        </div>
-    </div>
+</script>
+	
 
-    <div class="section">
-        <h2>Larger buttons</h2>
-        <p>To create larger buttons include an additional class of <code>large</code>.</p>
 
-        <div class="example">
-            <pre class="prettyprint"><code>&lt;a class="btn-auth btn-[service] large" href="#">
-    Sign in with &lt;b>[service]&lt;/b>
-&lt;/a></code></pre>
-            <div>
-                <p><a class="btn-auth btn-facebook large" href="#button">Sign in with <b>Facebook</b></a></p>
-                <p><a class="btn-auth btn-twitter large" href="#button">Sign in with <b>Twitter</b></a></p>
-                <p><a class="btn-auth btn-google large" href="#button">Sign in with <b>Google</b></a></p>
-                <p><a class="btn-auth btn-github large" href="#button">Sign in with <b>GitHub</b></a></p>
-                <p><a class="btn-auth btn-yahoo large" href="#button">Sign in with <b>Yahoo!</b></a></p>
-                <p><a class="btn-auth btn-windows large" href="#button">Sign in with <b>Windows Live ID</b></a></p>
-                <p><a class="btn-auth btn-openid large" href="#button">Sign in with <b>OpenID</b></a></p>
-            </div>
-        </div>
-    </div>
 
-    <div class="section">
-        <h2>Supported services</h2>
-        <ul>
-            <li>Facebook
-            <li>GitHub
-            <li>Google
-            <li>OpenID
-            <li>Twitter
-            <li>Windows Live ID
-            <li>Yahoo!
-        </ul>
-    </div>
 
-    <div class="section">
-        <h2>Source code</h2>
-        <p>Available on GitHub: <a href="http://github.com/necolas/css3-social-signin-buttons">necolas/css3-social-signin-buttons</a></p>
-        <p>Download it in either <a href="http://github.com/necolas/css3-social-signin-buttons/zipball/master">zip</a> or <a href="http://github.com/necolas/css3-social-signin-buttons/tarball/master">tar</a> formats.</p>
-        <p>Clone the project with Git by running:<br>
-        <code>$ git clone git://github.com/necolas/css3-social-signin-buttons.git</code></p>
-    </div>
 
-    <div class="section">
-        <h2>Browser compatibility</h2>
-        <p>Full support: Google Chrome, Firefox 3.5+, Safari 4+, IE 10+, Opera 11.10+.</p>
-        <p><strong>Note:</strong> Some CSS3 enhancements are not supported in older versions of Opera and IE. The use of icons is not supported in IE 6 or IE 7.</p>
-    </div>
 
-    <div class="section">
-        <h2>License</h2>
-        <p>Public domain: <a href="http://unlicense.org/">http://unlicense.org/</a></p>
-    </div>
-</div>
 
-<div class="footer">
-    <a href="http://github.com/necolas/css3-social-signin-buttons">CSS3 Social Sign-in Buttons</a> by <a href="http://nicolasgallagher.com">Nicolas Gallagher</a>.
-</div>
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Создание меню на сайте (без функций) -->
+	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+		
+	</div>
+
+
+
+
+		<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+		<script>
+		
+		
+		vkBridge
+					.send('VKWebAppGetUserInfo')
+					  .then(data => {
+						// Handling received data
+		
+						console.log(data.id);
+						console.log(data.first_name);
+						console.log(data.last_name);
+						console.log(data);
+		
+						var vk_ides = (data.id);
+						document.mainsearchform.message.value = (data.id);
+						document.mainsearchform.name.value = (data.first_name);
+					  })
+					  .catch(error => {
+						// Handling an error
+					  });
+		
+		
+		
+		</script>
+	
+
+
+
+
+
+
+	
+	<!-- Основная часть страницы -->
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-6">
+				<!-- Форма для получения сообщений и имени -->
+				<form id="messForm" name="mainsearchform">
+				
+					<label for="name">Имя</label>
+					<input type="text" name="name" id="name"  value = "" placeholder="Введите имя" class="form-control">
+					<br>
+					<label for="message">Сообщение</label>
+					<textarea name="message" id="message" class="form-control" placeholder="Введите сообщение" ></textarea>
+					<br>
+					<input type="submit" value="Отправить" class="btn btn-danger">
+
+
+					
+				</form>
+
+
+			</div>
+			<div class="col-6">
+				<h3>Сообщения</h3>
+				<!-- Вывод всех сообщений будет здесь -->
+
+			
+
+			
+
+				<div id="messages">
+					
+						<div id="all_mess" class="messages"></div>
+					
+				  </div>
+				
+				
+					
+				
+				
+				
+				 
+				
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Подключаем jQuery, а также Socket.io -->
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		// У каждого пользователя будет случайный стиль для блока с сообщенями,
+		// поэтому в этом кусочке кода мы получаем случайные числа
+		var min = 1;
+		var max = 6;
+		var random = Math.floor(Math.random() * (max - min)) + min;
+
+		// Устаналиваем класс в переменную в зависимости от случайного числа
+		// Эти классы взяты из Bootstrap стилей
+		var alertClass;
+		switch (random) {
+			case 1:
+				alertClass = 'secondary';
+				break;
+			case 2:
+				alertClass = 'danger';
+				break;
+			case 3:
+				alertClass = 'success';
+				break;
+			case 4:
+				alertClass = 'warning';
+				break;
+			case 5:
+				alertClass = 'info';
+				break;
+			case 6:
+				alertClass = 'light';
+				break;
+		}
+
+		// Функция для работы с данными на сайте
+		$(function() {
+			// Включаем socket.io и отслеживаем все подключения
+			var URL_SERVER = 'https://www.vk-school.ru';
+		    var socket = io.connect(URL_SERVER);
+			// Делаем переменные на:
+			var $form = $("#messForm"); // Форму сообщений
+			var $name = $("#name"); // Поле с именем
+			var $textarea = $("#message"); // Текстовое поле
+			
+
+			
+			
+    
+			var $all_messages = $("#all_mess"); // Блок с сообщениями
+
+	      
+			setTimeout(go,500);
+		function go() {
+			socket.emit('send mess', {mess: $textarea.val(), name: $name.val(), className: alertClass});
+    }
+	
+
+
+			// Отслеживаем нажатие на кнопку в форме сообщений
+			$form.submit(function(event) {
+				// Предотвращаем классическое поведение формы
+				event.preventDefault();
+
+
+				
+				
+
+				// В сокет отсылаем новое событие 'send mess',
+				// в событие передаем различные параметры и данные
+				socket.emit('send mess', {mess: $textarea.val(), name: $name.val(), className: alertClass});
+				// Очищаем поле с сообщением
+				$textarea.val('');
+			});
+
+			// Здесь отслеживаем событие 'add mess', 
+			// которое должно приходить из сокета в случае добавления нового сообщения
+			socket.on('add mess', function(data) {
+				// Встраиваем полученное сообщение в блок с сообщениями
+				// У блока с сообщением будет тот класс, который соответвует пользователю что его отправил
+
+			
+				$all_messages.append("<div class='alert alert-" + data.className + "'><b>" + data.name + "</b>: " + data.mess + "</div>");
+				
+
+			});
+			
+			
+			
+
+		});
+	</script>
+
+
+
+
+</script>
+
+
+
+<script>
+
+
+</script>
+
+<script>
+	
+	
+				
+	</script>
+<script>
+	const messages = document.getElementById('messages');
+
+function appendMessage() {
+ const message = document.getElementsByClassName('message')[0];
+  const newMessage = message.cloneNode(true);
+  messages.appendChild(newMessage);
+}
+
+function getMessages() {
+ // Prior to getting your messages.
+  shouldScroll = messages.scrollTop + messages.clientHeight === messages.scrollHeight;
+  /*
+   * Get your messages, we'll just simulate it by appending a new one syncronously.
+   */
+  appendMessage();
+  // After getting your messages.
+  if (!shouldScroll) {
+    scrollToBottom();
+  }
+}
+
+function scrollToBottom() {
+  messages.scrollTop = messages.scrollHeight;
+}
+
+scrollToBottom();
+
+setInterval(getMessages, 100);
+	</script>
 </html>
