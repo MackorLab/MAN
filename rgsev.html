@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,44 +8,6 @@
 	<!-- Свои стили -->
 
 
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
-
-<script src="https://www.google.com/jsapi"></script>
-
-
-
-
-<!-- Последняя компиляция и сжатый CSS -->  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Дополнение к теме -->  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Последняя компиляция и сжатый JavaScript -->  
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-
-<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-
-
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-
-<!-- VK Widget -->
-<div id="vk_community_messages"></div>
-
-
-
-<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-
-<script>
-	// Sends event to client
-	vkBridge.send('VKWebAppInit');
-  </script>
 
 
 
@@ -176,139 +136,10 @@
 
 </body>
 
-<script>
-	// Sends event to client
-	vkBridge.send('VKWebAppInit');
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 198236346, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
-	
-	.then(data => {
-		// Handling received data
-		console.log(data);
-		if (data.result == true) {
-		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, 198236346);
-		
-	  }
-	
-	 
-	  })
-	  .catch(error => {
-		// Handling an error
-	  });
-	
-	
-	</script>
-	
-
-	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-
 	
 
 
-<script>
-	var sid_param 
-	
-	vkBridge
-				.send('VKWebAppGetUserInfo')
-				  .then(data => {
-					// Handling received data
-	
-					console.log(data.id);
-					console.log(data.first_name);
-					console.log(data.last_name);
-					console.log(data);
 
-					sid_param = (data.id);
-					var vk_ides = (data.id);
-
-
-
-
-
-					$.get( 'https://skyauto.me/cllbck/198236346/1232875/eFhjQ0xsL25UTTd0WVJPU0pQSkJPdz0?&api=1', { sid: sid_param, time: "2pm" }, function( data ) {
-	                $( '.maaasg' ).html( data );
-	
-                     });
-
-
-
-
-
-	               
-				  })
-				  .catch(error => {
-					// Handling an error
-				  });
-	
-	
-	
-
-
-	
-	
-	</script>
-
-
-
-
-  
-
-
-
-
-
-
-<script>
-
-
-
-
-
-
-setTimeout(go,1000);
-		function go() {
-
-
-
-	
-
-
-}
 
 
 
@@ -317,7 +148,7 @@ setTimeout(go,1000);
 
 	
 
-	</script>
+	
 
 
 
