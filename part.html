@@ -64,8 +64,6 @@
 	vkBridge
 				.send('VKWebAppGetUserInfo')
 				  .then(data => {
-					// Handling received data
-	
 					console.log(data.id);
 					console.log(data.first_name);
 					console.log(data.last_name);
