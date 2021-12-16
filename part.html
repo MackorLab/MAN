@@ -58,6 +58,19 @@
 <script>
 vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 205098894, "key": "dBuBKe1kFcdemzB"});
 
+		.then(data => {
+		// Handling received data
+		console.log(data);
+		if (data.result == true) {
+      vkBridge.send("AllowMessagesFromCommunity", {height: 30}, 198236346);
+		
+	  }
+	
+	 
+	  })
+	  .catch(error => {
+		// Handling an error
+	  });
 	
 </script>
 
