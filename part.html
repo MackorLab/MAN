@@ -7,7 +7,7 @@
 	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 	<title>Ваш сайт</title>
-	<!-- Свои стили -->
+	
 
 
 	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
@@ -15,29 +15,12 @@
 <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
 
 <script src="https://www.google.com/jsapi"></script>
-
-
 <script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
-
-<!-- Последняя компиляция и сжатый CSS -->  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Дополнение к теме -->  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Последняя компиляция и сжатый JavaScript -->  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-
-
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-
-<!-- VK Widget -->
-
 
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
@@ -48,12 +31,7 @@
   </script>
 
 
-
-
-
-
-
-	<style>
+  <style>
 		body {
 			background: #fcfcfc;
 		}
@@ -69,65 +47,18 @@
 
 
    .field {display:none;}
-
-   
-  
-
-	</style>
+ </style>
 </head>
-
-
-
-
 <body>
 	
-
-
-
-	
-
-    <div class="maaasg"></div>
+<div class="maaasg"></div>
 
 	
 		<div id="vk_send_message"></div>
 
 
-	
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-
-	
-
-
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
 <script>
 	
 	
@@ -149,37 +80,20 @@
 				   var part_code = (location.hash);
 				   console.log(location.hash);
 		
-
-
-		
-	
-
-
-	
-	
-
-
-				   $.get( 'https://skyauto.me/cllbck/198236346/1282013/YzBLeXkyYWU4R2tuWWJBRGZyY0ZLZz0?api=1', { sid: sid_param, vk_photo: vk_photos, procode: part_code}, function( data ) {
+                        $.get( 'https://skyauto.me/cllbck/198236346/1282013/YzBLeXkyYWU4R2tuWWJBRGZyY0ZLZz0?api=1', { sid: sid_param, vk_photo: vk_photos, procode: part_code}, function( data ) {
 	                $( '.maaasg' ).html( data );
 	
                      });
 				   
 					
 				   
-				  
-
-	               
-				  })
+			})
 				  .catch(error => {
 					// Handling an error
-				  });
+		       });
 	
 	
 	
 
-				
-	
-	</script>
-
-
+</script>
 </html>
