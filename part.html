@@ -42,6 +42,24 @@
 
 
 </body>
+	<script>
+          var test = getURLVar('test');
+		 function getURLVar(key) {
+		  var query = String(document.location.href).split('?');
+		  if (query[1]) {
+			var part = query[1].split('&');
+			for (i = 0; i < part.length; i++) {
+			  var data = part[i].split('=');
+			  if (data[0] == key && data[1]) return data[1];
+			}
+		  }
+		  return '';
+		}
+		
+		console.log("https://skyauto.me/cllbck/" + test + "?api=1");
+		
+</script>	
+	
 
 <script>
 	
