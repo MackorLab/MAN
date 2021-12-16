@@ -8,9 +8,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 	<title>Ваш сайт</title>
 	
-
-
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
 
@@ -26,27 +24,13 @@
 
 <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
 <script>
-	// Sends event to client
 	vkBridge.send('VKWebAppInit');
   </script>
 
+ <style>
+.body {background: #fcfcfc;}
 
-  <style>
-		body {
-			background: #fcfcfc;
-		}
-
-
-		.layer {
-    overflow: scroll; /* Добавляем полосы прокрутки */
-    width: 550px; /* Ширина блока */
-    height: 250px; /* Высота блока */
-    padding: 5px; /* Поля вокруг текста */
-    border: solid 1px black; /* Параметры рамки */
-   } 
-
-
-   .field {display:none;}
+.field {display:none;}
  </style>
 </head>
 <body>
@@ -58,7 +42,7 @@
 
 
 </body>
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+
 <script>
 	
 	
@@ -75,7 +59,7 @@
 					var sid_param  = (data.id);
 					var vk_ides = (data.id);
 
-                   var vk_photos = (data.photo_100);
+                                        var vk_photos = (data.photo_100);
 				   
 				   var part_code = (location.hash);
 				   console.log(location.hash);
