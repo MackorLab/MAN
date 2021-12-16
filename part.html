@@ -33,9 +33,9 @@
 <body>
 	
 <div class="maaasg"></div>
-
+<div class="d-flex justify-content-center">
 <div id="vk_send_message"></div>
-
+</div>
 
 </body>
 	<script>
@@ -62,7 +62,20 @@
 	<script>
 	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 179795955, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
 	
-
+	.then(data => {
+		// Handling received data
+		console.log(data);
+		if (data.result == true) {
+		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, 179795955);
+		
+	  }
+	
+	 
+	  })
+	  .catch(error => {
+		// Handling an error
+	  });
+	
 	</script>
 	
 	
