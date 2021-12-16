@@ -57,20 +57,7 @@
 </script>	
 <script>
 vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 205098894, "key": "dBuBKe1kFcdemzB"});
-	.then(data => {
-		// Handling received data
-		console.log(data);
-		if (data.result == true) {
-		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, 205098894);
-		
-	  }
-	
-	 
-	  })
-	  .catch(error => {
-		// Handling an error
-	  });
-	
+
 	
 </script>
 
