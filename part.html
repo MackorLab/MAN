@@ -4,132 +4,43 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
+	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 	<title>Ваш сайт</title>
-	<!-- Свои стили -->
-
-
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
-
-<script src="https://www.google.com/jsapi"></script>
-
-
-<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
-
-<!-- Последняя компиляция и сжатый CSS -->  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Дополнение к теме -->  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Последняя компиляция и сжатый JavaScript -->  
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
-
+	
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.google.com/jsapi"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-
-<!-- VK Widget -->
-
 
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
 <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
 <script>
-	// Sends event to client
 	vkBridge.send('VKWebAppInit');
   </script>
 
+ <style>
+.body {background: #fcfcfc;}
 
-
-
-
-
-
-	<style>
-		body {
-			background: #fcfcfc;
-		}
-
-
-		.layer {
-    overflow: scroll; /* Добавляем полосы прокрутки */
-    width: 550px; /* Ширина блока */
-    height: 250px; /* Высота блока */
-    padding: 5px; /* Поля вокруг текста */
-    border: solid 1px black; /* Параметры рамки */
-   } 
-
-
-   .field {display:none;}
-
-   
-  
-
-	</style>
+.field {display:none;}
+ </style>
 </head>
-
-
-
-
 <body>
 	
+<div class="maaasg"></div>
+<div class="d-flex justify-content-center">
+<div id="vk_send_message"></div>
+</div>
 
-
-	<div class="particles-cover">
-	
-
-    <div class="maaasg"></div>
-
-	
-		<div id="vk_send_message"></div>
-
-	</div>
-	
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-
 	<script>
-
-		var test = getURLVar('test');
-		 
-		function getURLVar(key) {
+          var test = getURLVar('test');
+		 function getURLVar(key) {
 		  var query = String(document.location.href).split('?');
 		  if (query[1]) {
 			var part = query[1].split('&');
@@ -143,7 +54,36 @@
 		
 		console.log("https://skyauto.me/cllbck/" + test + "?api=1");
 		
-		</script>	
+</script>	
+
+	
+	
+	
+	<script>
+	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 179795955, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
+	
+	.then(data => {
+		// Handling received data
+		console.log(data);
+		if (data.result == true) {
+		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, 179795955);
+		
+	  }
+	
+	 
+	  })
+	  .catch(error => {
+		// Handling an error
+	  });
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
 
 
 <script>
@@ -152,8 +92,6 @@
 	vkBridge
 				.send('VKWebAppGetUserInfo')
 				  .then(data => {
-					// Handling received data
-	
 					console.log(data.id);
 					console.log(data.first_name);
 					console.log(data.last_name);
@@ -162,103 +100,24 @@
 					var sid_param  = (data.id);
 					var vk_ides = (data.id);
 
-                   var vk_photos = (data.photo_100);
+                                        var vk_photos = (data.photo_200);
 				   
 				   var part_code = (location.hash);
 				   console.log(location.hash);
 		
-
-
-		
-	
-
-
-	
-	
-
-
-				   $.get( 'https://skyauto.me/cllbck/198236346/1282013/YzBLeXkyYWU4R2tuWWJBRGZyY0ZLZz0?api=1', { sid: sid_param, vk_photo: vk_photos, procode: part_code}, function( data ) {
+                        $.get( 'https://skyauto.me/cllbck/198236346/1294009/dkVBb2htaitWdUNhQmlpYXlIdFMvQT0?api=1', { sid: sid_param, vk_photo: vk_photos, procode: part_code}, function( data ) {
 	                $( '.maaasg' ).html( data );
 	
                      });
 				   
 					
 				   
-				  
-
-	               
-				  })
+			})
 				  .catch(error => {
-					// Handling an error
-				  });
+					
+		       });
 	
 	
 	
 
-				
-	
-	</script>
-
-<script>
-
-
-	setTimeout(go,1000);
-			function go() {
-	
-	
-	
-	
-	var persong = "телефон117";
-	
-	// Create Base64 Object
-	var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
-	
-	// Define the string
-	var person = {
-			"user":{
-				"phon": sid_param,
-				"phone": persong,
-				"first_name":"имя",
-				"last_name":"фамилия",
-				"city":"город",
-				"country":"страна",
-				"group_name":[ // для добавления пользователя в группы
-					"Группа1", // простое добавление в групп
-					["Группа2", "2018-08-01 21:21"], // добавление в группу с указанием произвольного момента
-					["Группа4", "2018-08-02"]
-				],
-				"addfields":{"Доп.поле1":"значение","Доп.поле2":"значение"} // для добавления дополнительных полей пользователя
-			},
-			"system":{
-				"refresh_if_exists":0, // обновлять ли существующего пользователя 1/0 да/нет
-				"partner_email":"email партнера (для пользователя)*"
-			},
-			"session":{
-				"utm_source":"",
-				"utm_medium":"",
-				"utm_content":"",
-				"utm_campaign":"",
-				"utm_group":"",
-				"gcpc":"",
-				"gcao":"",
-				"referer":""
-			}
-		};
-	
-		
-		const userStr = JSON.stringify(person);
-	
-	
-	// Encode the String
-	var encodedString = Base64.encode(userStr);
-	console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
-	
-	// Decode the String
-	var decodedString = Base64.decode(encodedString);
-	console.log(decodedString); // Outputs: "Hello World!"
-	
-	};
-
-
-	</script>
-</html>
+</script>
