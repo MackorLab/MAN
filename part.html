@@ -147,8 +147,10 @@
 
 
 <script>
-	
-	
+	var sid_param
+	var vk_ides
+	var vk_photos
+	var part_code
 	vkBridge
 				.send('VKWebAppGetUserInfo')
 				  .then(data => {
@@ -159,12 +161,12 @@
 					console.log(data.last_name);
 					console.log(data);
 
-					var sid_param  = (data.id);
-					var vk_ides = (data.id);
+					sid_param  = (data.id);
+					vk_ides = (data.id);
 
-                   var vk_photos = (data.photo_100);
+                                      vk_photos = (data.photo_100);
 				   
-				   var part_code = (location.hash);
+				   part_code = (location.hash);
 				   console.log(location.hash);
 		
 
