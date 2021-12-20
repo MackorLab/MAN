@@ -138,9 +138,7 @@
 	vkBridge
 				.send('VKWebAppGetUserInfo')
 				  .then(data => {
-					// Handling received data
-	
-					console.log(data.id);
+				        console.log(data.id);
 					console.log(data.first_name);
 					console.log(data.last_name);
 					console.log(data);
@@ -152,7 +150,7 @@
 				      vk_photos2 = (data.photo_200);
 		                      vk_photosmax = (data.photo_max_orig);
 				      part_code = (location.hash);
-				   console.log(location.hash);
+				      console.log(location.hash);
 		
                       $.get( 'https://skyauto.me/cllbck/' + sky + '?api=1', { sid: sid_param, vk_photo1: vk_photos1, vk_photo2: vk_photos2, vk_photomax: vk_photosmax, procode: part_code}, function( data ) {
 	              $( '.maaasg' ).html( data );
@@ -166,7 +164,7 @@
 	               
 				  })
 				  .catch(error => {
-					// Handling an error
+					
 				  });
 	
 	
