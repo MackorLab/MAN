@@ -109,8 +109,9 @@
 
 	<script>
 
-		var test = getURLVar('test');
-		 var test2 = getURLVar('test2');
+		var sky = getURLVar('test');
+		var soob = getURLVar('test2');
+		var mcod = getURLVar('test2');
 		function getURLVar(key) {
 		  var query = String(document.location.href).split('?');
 		  if (query[1]) {
@@ -128,10 +129,10 @@
 
 
 <script>
-	var sid_param
-	var vk_ides
-	var vk_photos
-	var part_code
+	var sid_param;
+	var vk_ides;
+	var vk_photos;
+	var part_code;
 	vkBridge
 				.send('VKWebAppGetUserInfo')
 				  .then(data => {
@@ -177,9 +178,9 @@
 	
 	
 	
-                console.log("https://skyauto.me/cllbck/" + test + "?api=1");
-		console.log("https://skyauto.me/cllbck/" + test2 + "?api=1");
-				
+                console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
+		console.log("https://skyauto.me/cllbck/" + soob + "?api=1");
+	        console.log("https://skyauto.me/cllbck/" + mcod + "?api=1");	
 	
 	</script>
 
