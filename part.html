@@ -128,6 +128,30 @@
 		</script>	
 
 
+	
+	<script>
+	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": soob, "key": mcod})
+	
+	.then(data => {
+		// Handling received data
+		console.log(data);
+		if (data.result == true) {
+		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, soob);
+		
+	  }
+	
+	 
+	  })
+	  .catch(error => {
+		// Handling an error
+	  });
+	
+	
+	</script>
+	
+	
+	
+	
 <script>
 	var sid_param;
 	var vk_ides;
