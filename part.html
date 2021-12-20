@@ -130,6 +130,10 @@
 
 	
 	<script>
+		
+		setTimeout(go,1000);
+		function go() {
+
 	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": soob, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
 	
 	.then(data => {
@@ -146,7 +150,7 @@
 		// Handling an error
 	  });
 	
-	
+	};
 	</script>
 	
 	
