@@ -56,8 +56,11 @@
 <script>
 	var sid_param;
 	var vk_ides;
-	var vk_photos;
 	var part_code;
+	var vk_photos1;
+	var vk_photos2;
+	var vk_photosmax;
+	
 	vkBridge
 				.send('VKWebAppGetUserInfo')
 				  .then(data => {
