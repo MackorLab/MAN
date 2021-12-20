@@ -108,9 +108,9 @@
 	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
 
 	<script>
-
+                var soob = getURLVar('soob');
 		var sky = getURLVar('sky');
-		var soob = getURLVar('soob');
+		
 		var mcod = getURLVar('mcod');
 		function getURLVar(key) {
 		  var query = String(document.location.href).split('?');
@@ -131,8 +131,7 @@
 	
 	<script>
 		
-		setTimeout(go,1000);
-		function go() {
+		
 
 	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": soob, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
 	
@@ -150,7 +149,7 @@
 		// Handling an error
 	  });
 	
-	};
+	
 	</script>
 	
 	
