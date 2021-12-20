@@ -131,15 +131,15 @@
 	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
 	<script>
 		
-		
+		var soobs = soob;
 
-	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": soob, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
+	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": soobs, "key": "cc964fabb0e1d70924a92e4e8b513dbff7cc10a9"})
 	
 	.then(data => {
 		// Handling received data
 		console.log(data);
 		if (data.result == true) {
-		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, soob);
+		VK.Widgets.AllowMessagesFromCommunity("vk_send_message", {height: 30}, soobs);
 		
 	  }
 	
