@@ -72,6 +72,20 @@ vkBridge.send('VKWebAppInit');
 				      part_code = (location.hash);
 				      console.log(location.hash);
 		
+		
+		
+setTimeout(go,1000);
+		function go() {
+
+
+		
+	
+
+
+
+		
+		
+		
                       $.get( 'https://skyauto.me/cllbck/' + sky + '?api=1', { sid: sid_user, vk_photo1: vk_photos1, vk_photo2: vk_photos2, vk_photomax: vk_photosmax, procode: part_code}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
@@ -88,7 +102,7 @@ vkBridge.send('VKWebAppInit');
 				  });
 	
 	
-	
+	}
                 console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
 			
 	
