@@ -86,13 +86,13 @@ setTimeout(go,1000);
 		
 		
 		
-                      $.get( "https://skyauto.me/cllbck/" + sky, {?api=1, sid: sid_user, vk_photo1: vk_photos1, procode: part_code}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid: sid_user, vk_photo1: vk_photos1, procode: part_code}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
 				
 			
-			   console.log("https://skyauto.me/cllbck/" + sky);
+			   console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
 			
 			
 			}		
