@@ -29,7 +29,7 @@
 <script>
                
 		var sky = getURLVar('sky');
-		
+		var sid = getURLVar('sid');
 		function getURLVar(key) {
 		  var query = String(document.location.href).split('?');
 		  if (query[1]) {
@@ -49,7 +49,7 @@
 vkBridge.send('VKWebAppInit');
 </script>
 <script>
-	var sid_param;
+	var sid_user;
 	var vk_ides;
 	var part_code;
 	var vk_photos1;
@@ -72,7 +72,7 @@ vkBridge.send('VKWebAppInit');
 				      part_code = (location.hash);
 				      console.log(location.hash);
 		
-                      $.get( 'https://skyauto.me/cllbck/' + sky + '?api=1', { sid: sid_param, vk_photo1: vk_photos1, vk_photo2: vk_photos2, vk_photomax: vk_photosmax, procode: part_code}, function( data ) {
+                      $.get( 'https://skyauto.me/cllbck/' + sky + '?api=1', { sid: sid, vk_photo1: vk_photos1, vk_photo2: vk_photos2, vk_photomax: vk_photosmax, procode: part_code}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
