@@ -46,8 +46,24 @@
 </script>	
 
 <script>
-vkBridge.send('VKWebAppInit');
-</script>
+var vk_hash;
+	
+vkBridge.send("VKWebAppCreateHash")
+.then(data => {
+					
+	   vk_hash  = (hash);
+           console.log(hash);
+				
+	                })
+	               .catch(error => {
+						
+					  
+                        });
+		
+		
+		
+		</script>
+	
 <script>
 	var sid_user;
 	var vk_ides;
@@ -85,7 +101,7 @@ vkBridge.send('VKWebAppInit');
 		
 		
 		
-                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid: sid_user, vk_photo1: vk_photos1, procode: part_code}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid: sid_user, vk_photo1: vk_photos1, hashs: vk_hash}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
