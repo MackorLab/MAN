@@ -45,30 +45,12 @@
 		
 </script>	
 
-<script>
-var vk_hash;
-	
-vkBridge.send("VKWebAppCreateHash")
-.then(data => {
-		 console.log("vk_sh3");			
-	   vk_hash = (hash);
-           console.log(hash);
-           console.log(vk_hash);	
-	       
-	                })
-	               .catch(error => {
-						
-					  
-                        });
-		
-		
-		
-		</script>
+
 	
 <script>
 	var sid_user;
 	var vk_ides;
-	var part_code;
+	var vk_hash;
 	var vk_photos1;
 	var vk_photos2;
 	var vk_photosmax;
@@ -86,7 +68,7 @@ vkBridge.send("VKWebAppCreateHash")
                                       vk_photos1 = (data.photo_100);
 				      vk_photos2 = (data.photo_200);
 		                      vk_photosmax = (data.photo_max_orig);
-				      part_code = (location.hash);
+				      vk_hash = (location.hash);
 				      console.log(location.hash);
 		
 		
