@@ -27,6 +27,34 @@
 	
 </body>
 <script>
+var set_resurs_val;
+var get_resurs_val;
+var set_page_val;
+var get_page_val;
+	
+function setResurse() {
+   localStorage.resurs = set_resurs_val;
+}
+
+function getResurse() {
+get_resurs_val = localStorage.resurs;
+}
+
+function setPage() {
+   localStorage.pages = set_page_val;
+}
+
+function getPage() {
+get_page_val = localStorage.pages;
+}
+
+
+getPage()
+getResurse()
+	
+	</script>
+	
+<script>
                
 		var sky = getURLVar('sky');
 	
