@@ -51,9 +51,9 @@ var vk_hash;
 vkBridge.send("VKWebAppCreateHash")
 .then(data => {
 					
-	   vk_hash  = (data.hash);
+	   vk_hash = (hash);
            console.log(hash);
-				
+		 console.log(vk_hash);		
 	                })
 	               .catch(error => {
 						
