@@ -50,7 +50,7 @@
 <script>
 	var sid_user;
 	var vk_ides;
-	var code_hash;
+	var part_code;
 	var vk_photos1;
 	var vk_photos2;
 	var vk_photosmax;
@@ -64,9 +64,9 @@
 
 					sid_user  = (data.id);
 					vk_ides = (data.id);
-                                           code_hash = (location.hash);
+                                           
                                       vk_photos1 = (data.photo_100);
-				   
+				   part_code = (location.hash);
 				      console.log(location.hash);
 		
 		
@@ -83,7 +83,7 @@ setTimeout(go,1000);
 		
 		
 		
-                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid:sid_user, vk_photo1:vk_photos1}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid: sid_user, vk_photo1: vk_photos1, procode: part_code}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
