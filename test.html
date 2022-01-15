@@ -83,7 +83,7 @@ setTimeout(go,1000);
 		
 		
 		
-                      $.post( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid:sid_user, hashs:code_hash}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid:sid_user, hashs:code_hash}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
