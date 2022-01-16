@@ -27,6 +27,34 @@
 	
 </body>
 <script>
+var set_resurs_val;
+var get_resurs_val;
+var set_page_val;
+var get_page_val;
+	
+function setResurse() {
+   localStorage.resurs = set_resurs_val;
+}
+
+function getResurse() {
+get_resurs_val = localStorage.resurs;
+}
+
+function setPage() {
+   localStorage.pages = set_page_val;
+}
+
+function getPage() {
+get_page_val = localStorage.pages;
+}
+
+
+getPage()
+getResurse()
+	
+	</script>
+	
+<script>
                
 		var sky = getURLVar('sky');
 	
@@ -45,13 +73,12 @@
 		
 </script>	
 
-<script>
-vkBridge.send('VKWebAppInit');
-</script>
+
+	
 <script>
 	var sid_user;
 	var vk_ides;
-	var part_code;
+	var hashs;
 	var vk_photos1;
 	var vk_photos2;
 	var vk_photosmax;
@@ -65,11 +92,9 @@ vkBridge.send('VKWebAppInit');
 
 					sid_user  = (data.id);
 					vk_ides = (data.id);
-
+                                           
                                       vk_photos1 = (data.photo_100);
-				      vk_photos2 = (data.photo_200);
-		                      vk_photosmax = (data.photo_max_orig);
-				      part_code = (location.hash);
+				   hashs = (location.hash);
 				      console.log(location.hash);
 		
 		
@@ -81,11 +106,10 @@ vkBridge.send('VKWebAppInit');
 	
 
 
-
 		
 		
 		
-                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1", {sid: sid_user, vk_photo1: vk_photos1, procode: part_code}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1",  {sid: sid_user, vk_photo1: vk_photos1,vk_page_val: get_page_val,vk_resurse_val: get_resurs_val, vk_hash: hashs}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
@@ -94,7 +118,7 @@ vkBridge.send('VKWebAppInit');
 			   console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
 			
 			
-					
+				console.log(code_hash);	
 				   
 				  
 
@@ -104,43 +128,19 @@ vkBridge.send('VKWebAppInit');
 					
 				  });
 	
-	
-	
-
-function razmesPoste() {
+	function publicPoste() {
  
  
  
 vkBridge.send("VKWebAppShowWallPostBox", {
-  "message": "Анонс вашей программы. Можно опубликовать отложенный пост, можно набрать из ссылок сообщества. Поставив метки владельца контента.",
-  "attachments": ["https://vk.com/app7957770_535939344","photo535939344_457242074"]
+  "message": mess,
+  "attachments": docs
 });
  
  
   
 }
-
-
-	
-	
-	
 	
 	
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </html>
