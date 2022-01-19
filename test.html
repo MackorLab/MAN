@@ -164,6 +164,17 @@ vkBridge.send("VKWebAppShowWallPostBox", {
 	});
 	}	
 </script>	
+	<script>
+	var id_grups;
+	var id_posrs;
+     function postsGrup() {	
+		
+	vkBridge.send("VKWebAppOpenWallPost", {
+	"owner_id": id_grups,
+	"post_id": id_posrs
+	});
+	}	
+</script>	
 	
 	
 </html>	
