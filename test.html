@@ -132,7 +132,7 @@ getResurse()
 	
  
   
-}
+
 	
 	
 	</script>
@@ -150,12 +150,20 @@ vkBridge.send("VKWebAppShowWallPostBox", {
   "message": mess,
   "attachments": docs
 });
+}	
  </script>
 	
-	
-	
-	
-	
+	<script>
+	var pix_codes;
+	var events;
+     function activPixel() {	
+		
+	vkBridge.send("VKWebAppRetargetingPixel", {
+	"pixel_code": pix_codes, 
+	"event": events
+	});
+	}	
+</script>	
 	
 	
 </html>	
