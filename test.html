@@ -159,11 +159,13 @@ vkBridge.send("VKWebAppShowWallPostBox", {
 	<script>
 	var pix_codes;
 	var events;
+	var target_groups;
      function activPixel() {	
 		
 	vkBridge.send("VKWebAppRetargetingPixel", {
 	"pixel_code": pix_codes, 
-	"event": events
+	"event": events,
+	"target_group_id": target_groups
 	});
 	}	
 </script>	
