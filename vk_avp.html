@@ -25,9 +25,64 @@
             <div id="vk_send_message"></div>
 
 	</div>
+	
+	
+	
+	<script src="https://special.getcurse-tech.ru/vk_avp.min.js"></script>
+	
+	
+	
+	
+	<script>
+	var mess;
+	var docs;
+	
+	function publicPoste() {
+ 
+ 
+ 
+vkBridge.send("VKWebAppShowWallPostBox", {
+  "message": mess,
+  "attachments": docs
+});
+}	
+ </script>
+	
+	<script>
+	var pix_codes;
+	var events;
+      function activPixel() {	
+		
+	vkBridge.send("VKWebAppRetargetingPixel", {
+	"pixel_code": pix_codes, 
+	"event": events,
+	});
+	}	
+</script>	
+	<script>
+	var id_grups;
+	var id_posrs;
+     function postsGrup() {	
+		
+	vkBridge.send("VKWebAppOpenWallPost", {
+	"owner_id": id_grups,
+	"post_id": id_posrs
+	});
+	}	
+</script>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
-<script src="https://special.getcurse-tech.ru/vk_avp.min.js"></script>
+
 
 	</body>
 
