@@ -18,9 +18,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
 	
-<script>
-vkBridge.send('VKWebAppInit');
-</script>
+
 <style>
 </style>
 </head>
@@ -32,90 +30,21 @@ vkBridge.send('VKWebAppInit');
 	</div>
 	
 </body>
+	
+
+
+
+
+
+
+		
+	
+
 <script>
-var set_resurs_val;
-var get_resurs_val;
-var set_page_val;
-var get_page_val;
-	
-function setResurse() {
-   localStorage.resurs = set_resurs_val;
-}
-
-function getResurse() {
-get_resurs_val = localStorage.resurs;
-}
-
-function setPage() {
-   localStorage.pages = set_page_val;
-}
-
-function getPage() {
-get_page_val = localStorage.pages;
-}
-
-
-getPage()
-getResurse()
-	
-	</script>
-	
-<script>
-               
-		var sky = getURLVar('sky');
-	
-		function getURLVar(key) {
-		  var query = String(document.location.href).split('?');
-		  if (query[1]) {
-			var part = query[1].split('&');
-			for (i = 0; i < part.length; i++) {
-			  var data = part[i].split('=');
-			  if (data[0] == key && data[1]) return data[1];
-			}
-		  }
-		  return '';
-		}
-		
-		
-</script>	
-
-
-	
-<script>
-	var sid_user;
-	var vk_ides;
-	var hashs;
-	var vk_photos1;
-	var vk_photos2;
-	var vk_photosmax;
-	
-	vkBridge.send('VKWebAppGetUserInfo')
-				  .then(data => {
-				        console.log(data.id);
-					console.log(data.first_name);
-					console.log(data.last_name);
-					console.log(data);
-
-					sid_user  = (data.id);
-					vk_ides = (data.id);
-                                           
-                                      vk_photos1 = (data.photo_100);
-				   hashs = (location.hash);
-				      console.log(location.hash);
 		
 		
 		
-
-
-
-		
-	
-
-
-		
-		
-		
-                      $.get( "https://skyauto.me/cllbck/209869302/1336539/dEFqTmlQQUtRQmJsMy9sZjY5Tm1GQT0?api=1",  {sid: 535939344, sid_man: sid_user, vk_photo1: vk_photos1,vk_page_val: get_page_val,vk_resurse_val: get_resurs_val, vk_hash: hashs}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/209869302/1336539/dEFqTmlQQUtRQmJsMy9sZjY5Tm1GQT0?api=1",  {sid: 535939344}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
@@ -129,11 +58,8 @@ getResurse()
 				  
 
 	               
-				  })
-				  .catch(error => {
-					
-				  });
-	
+				
+				 
 	
  
   
@@ -143,43 +69,6 @@ getResurse()
 	</script>
 	
 	
-	<script>
-	var mess;
-	var docs;
-	
-	function publicPoste() {
- 
- 
- 
-vkBridge.send("VKWebAppShowWallPostBox", {
-  "message": mess,
-  "attachments": docs
-});
-}	
- </script>
-	
-	<script>
-	var pix_codes;
-	var events;
-      function activPixel() {	
-		
-	vkBridge.send("VKWebAppRetargetingPixel", {
-	"pixel_code": pix_codes, 
-	"event": events,
-	});
-	}	
-</script>	
-	<script>
-	var id_grups;
-	var id_posrs;
-     function postsGrup() {	
-		
-	vkBridge.send("VKWebAppOpenWallPost", {
-	"owner_id": id_grups,
-	"post_id": id_posrs
-	});
-	}	
-</script>	
 	
 	
 </html>	
