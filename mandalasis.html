@@ -119,9 +119,7 @@ var smartphone = {
 // переберём объект smartphone
 $.each(smartphone, function( key, value ) {
 
-  // действия, которые будут выполняться для каждого свойства объекта
-  // key - текущее имя свойства массива
-  // value - значение текущего свойства объекта
+ $(this).delay(key*1000).fadeIn(1000);
   
   console.log( 'Свойство: ' +key + '; Значение: ' + value );
 
