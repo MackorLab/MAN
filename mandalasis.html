@@ -122,7 +122,12 @@ $.each(smartphone, function( key, value ) {
   // действия, которые будут выполняться для каждого свойства объекта
   // key - текущее имя свойства массива
   // value - значение текущего свойства объекта
-$(this).delay(5000)
+  var time = 500;
+
+  $cards.each(function() {
+      setTimeout( function(){ addPositioningClass($(this)); }, time)
+      time += 500;
+  });
   // выведем имя свойства и его значение в консоль
   console.log( 'Свойство: ' +key + '; Значение: ' + value );
 
