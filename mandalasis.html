@@ -108,19 +108,26 @@ getResurse()
 
 
 
-		var obj = {
-   one: 1,
-   two: 2,
-   three: 3,
-   four: 4,
-   five: 5
+var smartphone = {
+  "name": "LG G5 se",
+  "year": "2016",
+  "screen-size": "5.3",
+  "screen-resolution": "2560 x 1440",
+  "os" : "Android 6.0 (Marshmallow)"
 };
-$.each(obj, function (index,value) {
-  console.log(value);
-  console.log(index);
-	
+
+// переберём объект smartphone
+$.each(smartphone, function( key, value ) {
+
+  // действия, которые будут выполняться для каждого свойства объекта
+  // key - текущее имя свойства массива
+  // value - значение текущего свойства объекта
+ 
+  // выведем имя свойства и его значение в консоль
+  console.log( 'Свойство: ' +key + '; Значение: ' + value );
+
 });
-	
+
 
 
 		
