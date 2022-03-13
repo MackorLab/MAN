@@ -62,7 +62,7 @@ getResurse()
 	
 <script>
                
-		var skys = getURLVar('sky');
+		var sky = getURLVar('avp');
 	
 		function getURLVar(key) {
 		  var query = String(document.location.href).split('?');
@@ -115,13 +115,13 @@ getResurse()
 		
 		
 		
-                      $.get( "https://skyauto.me/cllbck/" + skys + "?api=1",  {uid: sid_user, vk_photo1: vk_photos1,vk_hash: hashs}, function( data ) {
+                      $.get( "https://skyauto.me/cllbck/" + sky + "?api=1",  {uid: sid_user, vk_photo1: vk_photos1,vk_hash: hashs}, function( data ) {
 	              $( '.maaasg' ).html( data );
 	
                      });
 				
 			
-			   console.log("https://skyauto.me/cllbck/" + skys + "?api=1");
+			   console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
 			
 			
 				console.log(code_hash);	
