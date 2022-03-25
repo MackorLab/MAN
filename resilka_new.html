@@ -33,6 +33,12 @@
 <script>
 vkBridge.send('VKWebAppInit');
 	
+
+vkBridge.send("VKWebAppGetCommunityToken", {"app_id": 8077062, "group_id": 209963332, "scope": "messages"});
+.then(data => console.log(data.result))
+.catch(error => console.log(error));	
+	
+	
 	
 </script>
 <script>
