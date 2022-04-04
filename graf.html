@@ -56,6 +56,7 @@ display: none;
     <div id="canvas"></div>
 
     <button id="save-button">print to console</button>
+<button class="download">Скачать файл</button>
 
     <script>
 
@@ -135,6 +136,19 @@ display: none;
 
       // wire save button
       $('#save-button').click(exportDiagram);
+      
+      
+      
+      
+      
+      $('.download').on('click', function(){
+	var link = document.createElement('a');
+	link.setAttribute('href', '/download.png');
+	link.setAttribute('download', 'download.png');
+	link.click();
+	return false;
+});
+      
     
     </script>
     <!--
