@@ -74,9 +74,10 @@
 
          // alert('Diagram exported. Check the developer tools!');
           
-    var graff = result.xml;
-    
-    this.download = graff;
+ let text = result.xml;
+    let myData = 'data:application/txt;charset=utf-8,'(text);
+    this.href = myData;
+    this.download = 'data.txt';
 
           console.log('DIAGRAM', result.xml);
         } catch (err) {
