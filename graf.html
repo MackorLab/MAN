@@ -143,10 +143,11 @@ var outdat;
       
       
       $('.download').on('click', function(){
-	  let text = outdat;
-    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(text);
-    this.href = myData;
-    this.download = 'data.txt';
+	var link = document.createElement('a');
+	
+	link.setAttribute('download', outdat);
+	link.click();
+	return false;
 });
       
     
