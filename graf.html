@@ -74,10 +74,9 @@
 
          // alert('Diagram exported. Check the developer tools!');
           
-    let text = result.xml;
-    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(text);
-    this.href = myData;
-    this.download = 'data.txt';
+    
+    
+    this.download = result.xml;
 
           console.log('DIAGRAM', result.xml);
         } catch (err) {
