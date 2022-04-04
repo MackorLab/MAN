@@ -143,11 +143,10 @@ var outdat;
       
       
       $('.download').on('click', function(){
-	var link = document.createElement('a');
-	link.setAttribute('href', outdat);
-	link.setAttribute('download', 'download.bpmn');
-	link.click();
-	return false;
+	  let text = outdat;
+    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(text);
+    this.href = myData;
+    this.download = 'data.txt';
 });
       
     
