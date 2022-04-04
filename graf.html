@@ -59,7 +59,7 @@ display: none;
  <button class="download">Скачать файл</button>
 </body>
     <script>
-
+var outdat;
       var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
 
       // modeler instance
@@ -81,10 +81,8 @@ display: none;
 
          // alert('Diagram exported. Check the developer tools!');
         
-
-    let myData = result.xml;
-    this.href = myData;
-    this.download = 'data.bpmn';
+          outdat = result.xml;
+   
 
           console.log(result.xml);
         } catch (err) {
@@ -143,8 +141,8 @@ display: none;
       
       $('.download').on('click', function(){
 	var link = document.createElement('a');
-	link.setAttribute('href', '/download.png');
-	link.setAttribute('download', 'download.png');
+	link.setAttribute('href', outdat);
+	link.setAttribute('download', 'download.bpmn');
 	link.click();
 	return false;
 });
