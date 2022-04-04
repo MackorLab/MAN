@@ -73,9 +73,9 @@
           var result = await bpmnModeler.saveXML({ format: true });
 
          // alert('Diagram exported. Check the developer tools!');
-          
- let text = result.xml;
-    let myData = text;
+        string xmlData = northwindDataSet.GetXml(result.xml);  
+
+    let myData = xmlData;
     this.href = myData;
     this.download = 'data.bpmn';
 
