@@ -180,7 +180,8 @@ document.getElementById('todownload').onclick = function() {
 	    
 	  const fileSelector = document.getElementById('file-selector');
   fileSelector.addEventListener('change', (event) => {
-    const bpmnXML = decodeURIComponent(event.target.files);
+      var bp = event.target.files;
+    var bpmnXML = decodeURIComponent(bp);
     console.log(bpmnXML);
 	  
 	openDiagram(bpmnXML)  
