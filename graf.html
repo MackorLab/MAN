@@ -72,7 +72,7 @@ display: none;
      <a class="btn btn-primary btn-sm" id="todownload">Сохранить в файл</a>
     </div>
     <div class="col-sm">
-      Одна из трёх колонок
+   <input type="file" id="file-selector" multiple>
     </div>
   </div>
 </div>
@@ -172,6 +172,20 @@ document.getElementById('todownload').onclick = function() {
 }
       
     
+	
+
+  const fileSelector = document.getElementById('file-selector');
+  fileSelector.addEventListener('change', (event) => {
+    const fileList = event.target.files;
+    console.log(fileList);
+  });
+   
+	    
+	    
+	    
+	    
+	    
+	    
     </script>
     <!--
       Thanks for trying out our BPMN toolkit!
