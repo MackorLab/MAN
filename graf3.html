@@ -190,16 +190,18 @@ document.getElementById('todownload').onclick = function() {
       var bp = event.target.files;
    bpmnXML = bp;
     console.log(bp);
-	  
- const modeler = new BpmnJS();
+	const modeler = new BpmnJS();
 
-try {
-  const result = await bpmnModeler(bp);
+modeler.importXML(xml, (err, warnings) => {
+ try {
+    const result = await modeler.importXML(xml);
   const { warnings } = result;
   console.log(warnings);
 } catch (err) {
   console.log(err.message, err.warnings);
 }
+
+});
 	  
   });    
 	    
