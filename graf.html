@@ -106,7 +106,10 @@ var outdat;
         
           outdat = result.xml;
    
-
+   let text = outdat;
+    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(outdat);
+    this.href = myData;
+    this.download = 'data.bpmn';
           console.log(result.xml);
         } catch (err) {
 
