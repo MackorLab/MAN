@@ -176,7 +176,9 @@ document.getElementById('todownload').onclick = function() {
 
   const fileSelector = document.getElementById('file-selector');
   fileSelector.addEventListener('change', (event) => {
-    diagramUrl = event.target.files;
+	  
+	let out =  = decodeURIComponent(event.target.files); 
+    diagramUrl = out;
     console.log(diagramUrl);
   });
    
