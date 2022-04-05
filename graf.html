@@ -166,7 +166,7 @@ var outdat;
 
 document.getElementById('todownload').onclick = function() {
     let text = outdat;
-    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(outdat);
+    let myData = outdat;
     this.href = myData;
     this.download = 'data.bpmn';
 }
