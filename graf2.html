@@ -184,15 +184,16 @@ document.getElementById('todownload').onclick = function() {
    bpmnXML = bp;
     console.log(bp);
 	  
-const modeler = new BpmnJS();
+  var viewer = new BpmnJS(bp);
 
-try {
-  const result = modeler.importDefinitions(bp);
-  const { warnings } = result;
-  console.log(warnings);
-} catch (err) {
-  console.log(err.message, err.warnings);
-}
+  viewer.importXML(bpmnXML, function(err) {
+
+    if (err) {
+      console.log('error rendering', err);
+    } else {
+      console.log('we are good!');
+    }
+  });
 	  
   });    
 	    
