@@ -55,7 +55,19 @@
 .bjs-powered-by {
 display: none;
 }
-      
+ .btn-group .button {
+    background-color: #4CAF50; /* Green */
+    border: 1px solid green;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}	    
+	    
     </style>
   </head>
   <body>
@@ -66,13 +78,13 @@ display: none;
 	<div class="container">
   <div class="row">
     <div class="col-sm">
-       <button id="save-button">print</button>
+       <button class="button" id="save-button">Компиляция</button>
     </div>
     <div class="col-sm">
-     <a class="btn btn-primary btn-sm" id="todownload">Сохранить в файл</a>
+     <a class="button" id="todownload">Сохранить на ПК</a>
     </div>
     <div class="col-sm">
-   <input type="file" id="file-selector" multiple>
+   <input class="button" type="file" id="file-selector" multiple>
     </div>
   </div>
 </div>
