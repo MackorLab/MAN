@@ -181,10 +181,22 @@ document.getElementById('todownload').onclick = function() {
 	  const fileSelector = document.getElementById('file-selector');
   fileSelector.addEventListener('change', (event) => {
       var bp = event.target.files;
-   bpmnXML = new String(bp);
-    console.log(bpmnXML);
+   //bpmnXML = bp;
+    console.log(bp);
 	  
-	openDiagram();  
+	const modeler = new BpmnJS();
+
+modeler.importXML(bp, (err, warnings) => {
+  const modeler = new BpmnJS();
+
+try {
+  const result = await modeler.importXML(bp);
+  const { warnings } = result;
+  console.log(warnings);
+} catch (err) {
+  console.log(err.message, err.warnings);
+}
+}); 
 	  
   });    
 	    
