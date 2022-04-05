@@ -181,7 +181,7 @@ document.getElementById('todownload').onclick = function() {
 	  const fileSelector = document.getElementById('file-selector');
   fileSelector.addEventListener('change', (event) => {
       var bp = event.target.files;
-    var bpmnXML = decodeURIComponent(bp);
+    var bpmnXML = = 'data:application/txt;charset=utf-8,' + decodeURIComponent(bp);
     console.log(bpmnXML);
 	  
 	openDiagram(bpmnXML)  
