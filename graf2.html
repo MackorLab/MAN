@@ -161,19 +161,19 @@ var outdat;
       $('#save-button').click(exportDiagram);
       
       
-      
+    
       
 
 document.getElementById('todownload').onclick = function() {
-    let text = outdat;
-    let myData = outdat;
+  let text = outdat;
+    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(text);
     this.href = myData;
-    this.download = 'data.bpmn';
+    this.download = 'data.bpmn'; 
 }
       
     
 	
-
+  
 
    
 	    
