@@ -187,7 +187,7 @@ document.getElementById('todownload').onclick = function() {
 const modeler = new BpmnJS();
 
 try {
-  const result = await modeler.importDefinitions(bp);
+  const result = modeler.importDefinitions(bp);
   const { warnings } = result;
   console.log(warnings);
 } catch (err) {
