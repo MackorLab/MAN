@@ -181,7 +181,7 @@ document.getElementById('todownload').onclick = function() {
 	  const fileSelector = document.getElementById('file-selector');
   fileSelector.addEventListener('change', (event) => {
       var bp = event.target.files;
-   bpmnXML = bp;
+   bpmnXML = new String(bp);
     console.log(bpmnXML);
 	  
 	openDiagram();  
