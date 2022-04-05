@@ -58,7 +58,8 @@ display: none;
     <button id="save-button">print</button>
 	  
 	<div> 
- <button class="download">Скачать файл</button>
+ 	
+<a id="todownload">Сохранить в файл</a>
 		</div> 
 </body>
     <script>
@@ -141,14 +142,13 @@ var outdat;
       
       
       
-      
-      $('.download').on('click', function(){
-	var link = document.createElement('a');
-	link.setAttribute('fale', outdat);
-	link.setAttribute('download', 'download.bpmn');
-	link.click();
-	return false;
-});
+
+document.getElementById('todownload').onclick = function() {
+    let text = outdat;
+    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(outdat);
+    this.href = myData;
+    this.download = 'data.txt';
+}
       
     
     </script>
