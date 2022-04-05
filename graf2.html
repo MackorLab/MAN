@@ -55,18 +55,7 @@
 .bjs-powered-by {
 display: none;
 }
- .btn-group .button {
-    background-color: #4CAF50; /* Green */
-    border: 1px solid green;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    float: left;
-}	    
+	    
 	    
     </style>
   </head>
@@ -74,13 +63,25 @@ display: none;
     <div id="canvas"></div>
 
   
-	  
+	<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      Одна из трёх колонок
+    </div>
+    <div class="col-sm">
+      Одна из трёх колонок
+    </div>
+    <div class="col-sm">
+      Одна из трёх колонок
+    </div>
+  </div>
+</div> 
 	
-       <button class="button" id="save-button">Компиляция</button>
+       <button class="btn btn-primary btn-lg" id="save-button">Компиляция</button>
  
-     <a class="button" id="todownload">Сохранить на ПК</a>
+     <a class="btn btn-primary btn-lg" id="todownload">Сохранить на ПК</a>
    
-   <input class="button" type="file" id="file-selector" multiple>
+   <input class="btn btn-primary btn-lg" type="file" id="file-selector" multiple>
   
  	
 <br><br>
