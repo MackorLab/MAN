@@ -184,10 +184,7 @@ document.getElementById('todownload').onclick = function() {
    //bpmnXML = bp;
     console.log(bp);
 	  
-	const modeler = new BpmnJS();
-
-modeler.importXML(bp, (err, warnings) => {
-  const modeler = new BpmnJS();
+ const modeler = new BpmnJS();
 
 try {
   const result = await modeler.importXML(bp);
@@ -196,7 +193,6 @@ try {
 } catch (err) {
   console.log(err.message, err.warnings);
 }
-}); 
 	  
   });    
 	    
