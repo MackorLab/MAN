@@ -82,7 +82,7 @@ display: none;
 </body>
     <script>
 var outdat;
-      var diagramUrl;
+      var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
 
       // modeler instance
       var bpmnModeler = new BpmnJS({
@@ -174,17 +174,15 @@ document.getElementById('todownload').onclick = function() {
     
 	
 
-  const fileSelector = document.getElementById('file-selector');
-  fileSelector.addEventListener('change', (event) => {
-	  
-	let out =  = decodeURIComponent(event.target.files); 
-    diagramUrl = out;
-    console.log(diagramUrl);
-  });
+
    
 	    
 	    
-	    
+	  const fileSelector = document.getElementById('file-selector');
+  fileSelector.addEventListener('change', (event) => {
+    const fileList = event.target.files;
+    console.log(fileList);
+  });    
 	    
 	    
 	    
