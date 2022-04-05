@@ -59,7 +59,7 @@ display: none;
 	  
 	<div> 
  	
-<a id="todownload">Сохранить в файл</a>
+<button id="todownload">Сохранить в файл</button>
 		</div> 
 </body>
     <script>
@@ -147,7 +147,7 @@ document.getElementById('todownload').onclick = function() {
     let text = outdat;
     let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(outdat);
     this.href = myData;
-    this.download = 'data.txt';
+    this.download = 'data.bpmn';
 }
       
     
