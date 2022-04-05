@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- required modeler styles -->
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@9.0.3/dist/assets/bpmn-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@9.0.3/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@9.0.3/dist/assets/bpmn-font/css/bpmn.css">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+ 
+	  
+	  
+    <!-- modeler distro -->
+    <script src="https://unpkg.com/bpmn-js@9.0.3/dist/bpmn-modeler.development.js"></script>
+
+    <!-- needed for this example only -->
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <!-- example styles -->
+    <style>
+      html, body, #canvas {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .diagram-note {
+        background-color: rgba(66, 180, 21, 0.7);
+        color: White;
+        border-radius: 5px;
+        font-family: Arial;
+        font-size: 12px;
+        padding: 5px;
+        min-height: 16px;
+        width: 50px;
+        text-align: center;
+      }
+
+      .needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
+        stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
+      }
+
+      #save-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+      }
+      
+      
+.bjs-powered-by {
+display: none;
+}
+      
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+
+  
+	  
+	<div class="container">
+  <div class="row">
+    <div class="col-sm">
+       <button id="save-button">print</button>
+    </div>
+    <div class="col-sm">
+     <a class="btn btn-primary btn-sm" id="todownload">Сохранить в файл</a>
+    </div>
+    <div class="col-sm">
+   <input type="file" id="file-selector" multiple>
+    </div>
+  </div>
+</div>
+ 	
+<br><br>
+		
+</body>
+    <script>
+var outdat;
+      var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
+
+      // modeler instance
+      var bpmnModeler = new BpmnJS({
+        container: '#canvas',
+        keyboard: {
+          bindTo: window
+        }
+      });
+
+      /**
+       * Save diagram contents and print them to the console.
+       */
+      async function exportDiagram() {
+
+        try {
+
+          var result = await bpmnModeler.saveXML({ format: true });
+
+         // alert('Diagram exported. Check the developer tools!');
+        
+          outdat = result.xml;
+   
+   let text = outdat;
+    let myData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(outdat);
+    this.href = myData;
+    this.download = 'data.bpmn';
+          console.log(myData);
+        } catch (err) {
+
+          console.error('could not save BPMN 2.0 diagram', err);
+        }
+      }
+
+      /**
+       * Open diagram in our modeler instance.
+       *
+       * @param {String} bpmnXML diagram to display
+       */
+      async function openDiagram(bpmnXML) {
+
+        // import diagram
+        try {
+
+          await bpmnModeler.importXML(bpmnXML);
+
+          // access modeler components
+          var canvas = bpmnModeler.get('canvas');
+          var overlays = bpmnModeler.get('overlays');
+
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+
+          // attach an overlay to a node
+          overlays.add('SCAN_OK', 'note', {
+            position: {
+              bottom: 0,
+              right: 0
+            },
+            html: '<div class="diagram-note">Mixed up the labels?</div>'
+          });
+
+          // add marker
+          canvas.addMarker('SCAN_OK', 'needs-discussion');
+        } catch (err) {
+
+          console.error('could not import BPMN 2.0 diagram', err);
+        }
+      }
+
+
+      // load external diagram file via AJAX and open it
+     $.get(diagramUrl, openDiagram, 'text');
+
+      // wire save button
+      $('#save-button').click(exportDiagram);
+      
+      
+      
+      
+
+document.getElementById('todownload').onclick = function() {
+    let text = outdat;
+    let myData = outdat;
+    this.href = myData;
+    this.download = 'data.bpmn';
+}
+      
+    
+	
+
+
+   
+	    
+	    
+	  const fileSelector = document.getElementById('file-selector');
+  fileSelector.addEventListener('change', (event) => {
+      var bp = event.target.files;
+   //bpmnXML = bp;
+    console.log(bp);
+	  
+const modeler = new BpmnJS();
+
+try {
+  const result = modeler.importDefinitions(bp);
+  const { warnings } = result;
+  console.log(warnings);
+} catch (err) {
+  console.log(err.message, err.warnings);
+}
+	  
+  });    
+	    
+	    
+	    
+    </script>
+    <!--
+      Thanks for trying out our BPMN toolkit!
+      This example uses the pre-built distribution of the bpmn-js modeler.
+      Consider rolling your own distribution to have more flexibility
+      regarding which features to include.
+      Checkout our advanced examples section to learn more:
+      * https://github.com/bpmn-io/bpmn-js-examples#advanced
+      To get a bit broader overview over how bpmn-js works,
+      follow our walkthrough:
+      * https://bpmn.io/toolkit/bpmn-js/walkthrough/
+      Related starters:
+      * https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/starter/viewer.html
+    -->
+  
+</html>
