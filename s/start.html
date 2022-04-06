@@ -9,7 +9,8 @@
   <meta name="description">
   <meta name="keywords" content="open source, toolkit, BPMN Modeler, business process, embed, model, editor, integrate, extend">
 
-
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
   
     <link rel="stylesheet" href="https://unpkg.com/bpmn-js@9.0.2/dist/assets/bpmn-js.css">
     <link rel="stylesheet" href="https://unpkg.com/bpmn-js@9.0.2/dist/assets/diagram-js.css">
@@ -42,7 +43,9 @@
   
   </style>
 
- 
+ <script>
+vkBridge.send('VKWebAppInit');
+</script>
 </head>
 <body class="preload">
 
