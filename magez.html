@@ -80,7 +80,93 @@
 <script type="text/javascript" src="https://special.getcurse-tech.ru/ras.min.js"></script>
 <script type="text/javascript" src="https://special.getcurse-tech.ru/rass.min.js"></script>
 </body>
-<script type="text/javascript" src="https://special.getcurse-tech.ru/test.min.js"></script>
+<script>
+	
+
+  vkBridge.send('VKWebAppInit');
+
+               
+    var sky = getURLVar('avp');
+           
+               function getURLVar(key) {
+                 var query = String(document.location.href).split('?');
+                 if (query[1]) {
+                   var part = query[1].split('&');
+                   for (i = 0; i < part.length; i++) {
+                     var data = part[i].split('=');
+                     if (data[0] == key && data[1]) return data[1];
+                   }
+                 }
+                 return '';
+               }
+               
+               
+               idvk = getURLVar('ids');
+           
+               function getURLVar(key) {
+                 var query = String(document.location.href).split('?');
+                 if (query[1]) {
+                   var part = query[1].split('&');
+                   for (i = 0; i < part.length; i++) {
+                     var data = part[i].split('=');
+                     if (data[0] == key && data[1]) return data[1];
+                   }
+                 }
+                 return '';
+               }              
+                   
+       
+               //console.log(idvk);
+           
+         
+           
+           vkBridge.send('VKWebAppGetUserInfo')
+                         .then(data => {
+                          
+                           vk_refer = (data.id);
+                           sid_user  = (data.id);
+                           vk_ides = (data.id);
+                                                  
+                           vk_photos1 = (data.photo_100);
+                          hashs = (location.hash);
+                             console.log(location.hash);
+                             //console.log(data.id);
+                             //console.log(data.first_name);
+                             //console.log(data.last_name);
+                            // console.log(data);
+               
+               
+       
+       
+       
+               
+           
+       
+       
+               
+               
+               
+                             $.get( "https://skyauto.me/cllbck/" + sky + "?api=1",  {uid: idvk, refer: vk_refer,vk_photo1: vk_photos1,vk_hash: hashs}, function( data ) {
+                         indata = data;
+           
+                            });
+                       
+                   
+                      //console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
+                   
+                   
+                       //console.log(code_hash);	
+                          
+                         
+       
+                          
+                         })
+                         .catch(error => {
+                           
+                         });
+           
+           	
+</script>
 	
 	
 	<script>
