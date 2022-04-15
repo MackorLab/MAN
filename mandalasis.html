@@ -20,6 +20,16 @@
 	
 <script>
 vkBridge.send('VKWebAppInit');
+	
+	var sid_user;
+	var vk_ides;
+	var hashs;
+	var vk_photos1;
+	var vk_photos2;
+	var vk_photosmax;	
+	
+	
+	
 </script>
 <style>
 </style>
@@ -82,12 +92,7 @@ getResurse()
 
 	
 <script>
-	var sid_user;
-	var vk_ides;
-	var hashs;
-	var vk_photos1;
-	var vk_photos2;
-	var vk_photosmax;
+
 	
 	vkBridge.send('VKWebAppGetUserInfo')
 				  .then(data => {
