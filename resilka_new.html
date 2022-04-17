@@ -73,79 +73,10 @@
 	
 	
 </body>
-<script>
-var set_resurs_val;
-var get_resurs_val;
-var set_page_val;
-var get_page_val;
-	
-function setResurse() {
-   localStorage.resurs = set_resurs_val;
-}
 
-function getResurse() {
-get_resurs_val = localStorage.resurs;
-}
-
-function setPage() {
-   localStorage.pages = set_page_val;
-}
-
-function getPage() {
-get_page_val = localStorage.pages;
-}
-
-
-getPage()
-getResurse()
-	
-	</script>
 	
 <script type="text/javascript" src="https://special.getcurse-tech.ru/test.min.js"></script>
 	
-	
-	<script>
-	var mess;
-	var docs;
-	
-	function publicPoste() {
- 
- 
- 
-vkBridge.send("VKWebAppShowWallPostBox", {
-  "message": mess,
-  "attachments": docs
-});
-}	
- </script>
-	
-	<script>
-	var pix_codes;
-	var events;
-      function activPixel() {	
-		
-	vkBridge.send("VKWebAppRetargetingPixel", {
-	"pixel_code": pix_codes, 
-	"event": events,
-	});
-	}	
-</script>	
-	<script>
-	var id_grups;
-	var id_posrs;
-     function postsGrup() {	
-		
-	vkBridge.send("VKWebAppOpenWallPost", {
-	"owner_id": id_grups,
-	"post_id": id_posrs
-	});
-	}	
-</script>	
-	
-<script>
-          console.log(vk_ides);
-        console.log(sid_user);
-        console.log(idvk);
-</script>
+
 	
 </html>	
