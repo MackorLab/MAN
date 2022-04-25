@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-	<p>test1</p>
+	<p>test2</p>
 <form id="ltForm9062491"  action="https://nativ.getcourse.ru/pl/lite/block-public/process-html?id=1392246757" method="post" data-open-new-window="0"><input type="hidden" name="formParams[setted_offer_id]" ><br>
 <input class='form-position-input' data-price-value='1000'data-price-currency='руб.' name='formParams[offer_id][]' type='hidden' value='3326005'><br>
 <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" value="" ><br>
@@ -45,10 +45,10 @@
 		let ref = document.getElementById("65396962662e4bc3428ref");
 		ref.value = document.referrer;
 		
-		let statUrl = "https://nativ.getcourse.ru/stat/counter?ref=" + encodeURIComponent(document.referrer)
+		let statUrl = window.open("https://nativ.getcourse.ru/stat/counter?ref=" + encodeURIComponent(document.referrer)
 			+ "&loc=" + encodeURIComponent(document.location.href);
 		document.getElementById('gccounterImgContainer').innerHTML
-			= "<img width=1 height=1 style='display:none' id='gccounterImg' src='" + statUrl + "'/>";
+			= "<img width=1 height=1 style='display:none' id='gccounterImg' src='" + statUrl + "'/>");
 	});
 </script>
 </body>
