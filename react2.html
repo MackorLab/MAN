@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div id="keyPressed"></div>
+<div id="app"></div>
 </body>
 
 
@@ -30,54 +30,82 @@
 
 
 <script>
-import { useState, useEffect } from "react";
-// Usage
-function App() {
-  // Call our hook for each key that we'd like to monitor
-  const happyPress = useKeyPress("h");
-  const sadPress = useKeyPress("s");
-  const robotPress = useKeyPress("r");
-  const foxPress = useKeyPress("f");
-  return (
-    <div>
-      <div>h, s, r, f</div>
-      <div>
-        {happyPress && "😊"}
-        {sadPress && "😢"}
-        {robotPress && "🤖"}
-        {foxPress && "🦊"}
-      </div>
-    </div>
-  );
-}
-// Hook
-function useKeyPress(targetKey) {
-  // State for keeping track of whether key is pressed
-  const [keyPressed, setKeyPressed] = useState<boolean>(false);
-  // If pressed key is our target key then set to true
-  function downHandler({ key }) {
-    if (key === targetKey) {
-      setKeyPressed(true);
-    }
-  }
-  // If released key is our target key then set to false
-  const upHandler = ({ key }) => {
-    if (key === targetKey) {
-      setKeyPressed(false);
-    }
-  };
-  // Add event listeners
-  useEffect(() => {
-    window.addEventListener("keydown", downHandler);
-    window.addEventListener("keyup", upHandler);
-    // Remove event listeners on cleanup
-    return () => {
-      window.removeEventListener("keydown", downHandler);
-      window.removeEventListener("keyup", upHandler);
-    };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
-  return keyPressed;
-}
+
+
+const { useState, useEffect } = React;
+
+const useKeyPress = (targetKey, onPressDown, onPressUp) => {
+    // State for keeping track of whether key is pressed
+    const [keyPressed, setKeyPressed] = useState(false);
+
+    useEffect(() => {
+        // If pressed key is our target key then set to true
+        const downHandler = ({ key }) => {
+            if (key === targetKey) {
+                setKeyPressed(true);
+                if (onPressDown) {
+                    onPressDown();
+                }
+            }
+        };
+
+        // If released key is our target key then set to false
+        const upHandler = ({ key }) => {
+            if (key === targetKey) {
+                setKeyPressed(false);
+                if (onPressUp) {
+                    onPressUp();
+                }
+            }
+        };
+
+        // Add event listeners
+        window.addEventListener("keydown", downHandler);
+        window.addEventListener("keyup", upHandler);
+
+        // Remove event listeners on cleanup
+        return () => {
+            window.removeEventListener("keydown", downHandler);
+            window.removeEventListener("keyup", upHandler);
+        };
+    }, [targetKey]);
+
+    return keyPressed;
+};
+
+const Indicator = ({ keyName, isTriggered }) => {
+    return (
+        <div className="box">
+            <p>
+                "{keyName}" was pressed:{" "}
+                <span
+                    className={`tag ${
+                        isTriggered ? "is-success" : "is-danger"
+                    }`}
+                >{`${isTriggered}`}</span>
+            </p>
+        </div>
+    );
+};
+
+const App = () => {
+    const jPressed = useKeyPress("j", undefined, () => {
+        console.log('You pressed the letter "j" - good job')
+    });
+    const kPressed = useKeyPress("k");
+
+    return (
+        <section className="section app-container">
+            <h1 className="title is-1">useKeyPress();</h1>
+            <Indicator keyName="j" isTriggered={jPressed} />
+            <Indicator keyName="k" isTriggered={kPressed} />
+            {kPressed && <p>Psst! Keypress hooks are cool 😎</p>}
+        </section>
+    );
+};
+
+ReactDOM.render(<App />, document.getElementById("app"));
+
 
 
 </script>
