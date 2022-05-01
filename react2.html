@@ -1,111 +1,125 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello React</title>
-   
-    
-    
-    
-  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>  
-    
-    
 
-    <!-- Don't use this in production: -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    
-    
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+
+  <title>CodePen - React.js useKeyPress()</title>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
 </head>
-<body>
 
-<div id="app"></div>
-</body>
+<body translate="no">
+  <div id="app"><section class="section app-container"><h1 class="title is-1">useKeyPress();</h1><div class="box"><p>"j" was pressed: <span class="tag is-danger">false</span></p></div><div class="box"><p>"k" was pressed: <span class="tag is-danger">false</span></p></div></section></div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
-
-
-
-
-
-
-
-<script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.6/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+      <script id="rendered-js">
+// Taken from: https://gist.github.com/gragland/b61b8f46114edbcf2a9e4bd5eb9f47f5#gistcomment-2936691
 
 const { useState, useEffect } = React;
 
 const useKeyPress = (targetKey, onPressDown, onPressUp) => {
-    // State for keeping track of whether key is pressed
-    const [keyPressed, setKeyPressed] = useState(false);
+  // State for keeping track of whether key is pressed
+  const [keyPressed, setKeyPressed] = useState(false);
 
-    useEffect(() => {
-        // If pressed key is our target key then set to true
-        const downHandler = ({ key }) => {
-            if (key === targetKey) {
-                setKeyPressed(true);
-                if (onPressDown) {
-                    onPressDown();
-                }
-            }
-        };
+  useEffect(() => {
+    // If pressed key is our target key then set to true
+    const downHandler = ({ key }) => {
+      if (key === targetKey) {
+        setKeyPressed(true);
+        if (onPressDown) {
+          onPressDown();
+        }
+      }
+    };
 
-        // If released key is our target key then set to false
-        const upHandler = ({ key }) => {
-            if (key === targetKey) {
-                setKeyPressed(false);
-                if (onPressUp) {
-                    onPressUp();
-                }
-            }
-        };
+    // If released key is our target key then set to false
+    const upHandler = ({ key }) => {
+      if (key === targetKey) {
+        setKeyPressed(false);
+        if (onPressUp) {
+          onPressUp();
+        }
+      }
+    };
 
-        // Add event listeners
-        window.addEventListener("keydown", downHandler);
-        window.addEventListener("keyup", upHandler);
+    // Add event listeners
+    window.addEventListener("keydown", downHandler);
+    window.addEventListener("keyup", upHandler);
 
-        // Remove event listeners on cleanup
-        return () => {
-            window.removeEventListener("keydown", downHandler);
-            window.removeEventListener("keyup", upHandler);
-        };
-    }, [targetKey]);
+    // Remove event listeners on cleanup
+    return () => {
+      window.removeEventListener("keydown", downHandler);
+      window.removeEventListener("keyup", upHandler);
+    };
+  }, [targetKey]);
 
-    return keyPressed;
+  return keyPressed;
 };
 
 const Indicator = ({ keyName, isTriggered }) => {
-    return (
-        <div className="box">
-            <p>
-                "{keyName}" was pressed:{" "}
-                <span
-                    className={`tag ${
-                        isTriggered ? "is-success" : "is-danger"
-                    }`}
-                >{`${isTriggered}`}</span>
-            </p>
-        </div>
-    );
+  return /*#__PURE__*/(
+    React.createElement("div", { className: "box" }, /*#__PURE__*/
+    React.createElement("p", null, "\"",
+    keyName, "\" was pressed:", " ", /*#__PURE__*/
+    React.createElement("span", {
+      className: `tag ${
+      isTriggered ? "is-success" : "is-danger"
+      }` },
+    `${isTriggered}`))));
+
+
+
 };
 
 const App = () => {
-    const jPressed = useKeyPress("j", undefined, () => {
-        console.log('You pressed the letter "j" - good job')
-    });
-    const kPressed = useKeyPress("k");
+  const jPressed = useKeyPress("j", undefined, () => {
+    console.log('You pressed the letter "j" - good job');
+  });
+  const kPressed = useKeyPress("k");
 
-    return (
-        <section className="section app-container">
-            <h1 className="title is-1">useKeyPress();</h1>
-            <Indicator keyName="j" isTriggered={jPressed} />
-            <Indicator keyName="k" isTriggered={kPressed} />
-            {kPressed && <p>Psst! Keypress hooks are cool 😎</p>}
-        </section>
-    );
+  return /*#__PURE__*/(
+    React.createElement("section", { className: "section app-container" }, /*#__PURE__*/
+    React.createElement("h1", { className: "title is-1" }, "useKeyPress();"), /*#__PURE__*/
+    React.createElement(Indicator, { keyName: "j", isTriggered: jPressed }), /*#__PURE__*/
+    React.createElement(Indicator, { keyName: "k", isTriggered: kPressed }),
+    kPressed && /*#__PURE__*/React.createElement("p", null, "Psst! Keypress hooks are cool \uD83D\uDE0E")));
+
+
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById("app"));
+//# sourceURL=pen.js
+    </script>
+
+  
 
 
 
-</script>
+
+ 
+</body>
