@@ -69,17 +69,18 @@ const useKeyPress = (targetKey, onPressDown, onPressUp) => {
 
     // Add event listeners
     window.addEventListener("keydown", downHandler);
-  
+    window.addEventListener("keyup", upHandler);  // можно удалить тогда не будет исчезать
 
     // Remove event listeners on cleanup
     return () => {
       window.removeEventListener("keydown", downHandler);
-     
+      window.removeEventListener("keyup", upHandler);  // можно удалить тогда не будет исчезать
     };
   }, [targetKey]);
 
   return keyPressed;
 };
+
 
 const Indicator = ({ keyName, isTriggered }) => {
   return /*#__PURE__*/(
