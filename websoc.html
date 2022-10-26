@@ -14,7 +14,7 @@
     <div id="chat"></div>
     <script type="module">
         const chatEl = document.getElementById("chat");
-        const ws = new WebSocket("ws://109.111.175.3:8000");
+        const ws = new WebSocket("ws://109.111.175.3:666");
         ws.onmessage = (message) => {
             const messages = JSON.parse(message.data);
             messages.forEach((val) => {
