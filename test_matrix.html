@@ -1,30 +1,5 @@
 <html><head>
 
-<script type="text/javascript">(function (d) {
-if (!d.visibilityState) {
-var s = d.createElement('script');
-s.src = 'https://static.tildacdn.com/js/tilda-polyfill-1.0.min.js';
-d.getElementsByTagName('head')[0].appendChild(s);
-}
-})(document);
-function t_onReady(func) {
-if (document.readyState != 'loading') {
-func();
-} else {
-document.addEventListener('DOMContentLoaded', func);
-}
-}
-function t_onFuncLoad(funcName, okFunc, time) {
-if (typeof window[funcName] === 'function') {
-okFunc();
-} else {
-setTimeout(function() {
-t_onFuncLoad(funcName, okFunc, time);
-},(time || 100));
-}
-}</script>
-
-
 
 <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js" charset="utf-8" onerror="this.loaderr='y';"></script>
 
