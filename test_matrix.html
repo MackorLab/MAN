@@ -4,7 +4,8 @@
     <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js" charset="utf-8" onerror="this.loaderr='y';"></script>
     
     <script src="https://static.tildacdn.com/js/tilda-scripts-3.0.min.js" charset="utf-8" defer="" onerror="this.loaderr='y';"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     
         
         
@@ -56,7 +57,7 @@
                 </div>   
             </div>
             <button class="btn" style="width: 347px;">Рассчитать</button>
-            <div class="matrixBox">
+            <div class="matrixBox" id="invoice">
             <svg id="matrizca" xmlns="http://www.w3.org/2000/svg" class="matrisza" width="650" height="601" viewBox="0 0 791 742" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet"><rect id="svgEditorBackground" x="0" y="0" width="791" height="742" style="fill: none; stroke: none;"></rect>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M328.84 299.846L259.558 230.564L257.894 232.229L327.175 301.511L328.84 299.846ZM352.498 323.504L350.833 325.169L538.423 512.759L540.088 511.094L352.498 323.504Z" style="fill:rgb(89, 112, 234)"></path>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M476.013   294.639L540.088    230.565L538.423   228.9L474.349     292.974L476.013   294.639ZM449.376   321.277L447.711     319.612L257.894 509.429L259.558    511.094L449.376 321.277Z" fill="#EA596E"></path>
@@ -1813,11 +1814,29 @@
     </script>
                  
     </div> 
+        
+        <button onclick="generatePDF()">Сохранить в PDF</button>
+        
+        
+        
     </div>
     
     
     
-    
+    <script>
+       function generatePDF() {
+    const element = document.getElementById('invoice');
+    html2pdf()
+        .from(element)
+        .save();
+}
+        
+        
+        
+    </script>
+        
+        
+        
     
     </body>
     
