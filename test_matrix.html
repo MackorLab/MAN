@@ -1840,7 +1840,13 @@
     </script>
         
     
-        
+     <div id="vk_comments_browse"></div>
+<script type="text/javascript">
+window.onload = function () {
+ VK.init({apiId: 111, onlyWidgets: true});
+ VK.Widgets.CommentsBrowse('vk_comments_browse', {width: 500, limit: 5, autoPublish:1,pageUrl:"https://vk.com/app51530484",mini: 0});
+}
+</script>   
         
     
     </body>
