@@ -1840,13 +1840,17 @@
     </script>
         
     
-     <div id="vk_comments_browse"></div>
+  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
 <script type="text/javascript">
-window.onload = function () {
- VK.init({apiId: 111, onlyWidgets: true});
- VK.Widgets.CommentsBrowse('vk_comments_browse', {width: 500, limit: 5, autoPublish:1,pageUrl:"https://vk.com/app51530484",mini: 0});
-}
-</script>   
+  VK.init({ apiId: 51530484, onlyWidgets: true });
+</script>
+
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+  VK.Widgets.Comments("vk_comments", {width: 500, limit: 15, autoPublish:1, pageUrl:"https://vk.com/app51530484", mini: 0, attach: "*");
+</script>
+
         
     
     </body>
