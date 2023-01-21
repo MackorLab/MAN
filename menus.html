@@ -1,849 +1,193 @@
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+
+
 <style>
  
-  .layout {
-	 z-index: 1;
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
- .layout .header {
-	 box-shadow: 1px 1px 4px #9aa0b9;
-	 display: flex;
-	 align-items: center;
-	 padding: 20px;
+.karkas_navigatora{
+  position: relative;
+  background: url('https://cs4.pikabu.ru/post_img/big/2016/05/25/6/1464163350188194633.jpg') right no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
 }
- .layout .content {
-	 padding: 20px;
-	 display: flex;
-	 flex-direction: column;
+.karkas_navigatora .slaydera_navigatsia {
+  position: fixed;
+  height: 100vh;
+  width: 296px;
+  left: -296px;
+  background: rgb(226 220 220 / 18%);
+  box-shadow: 0px 0px 6px rgb(173 162 162 / 50%);
+  overflow: hidden;
+  transition: all 0.3s linear;
 }
- .layout .footer {
-	 text-align: center;
-	 margin-top: auto;
-	 margin-bottom: 20px;
-	 padding: 20px;
+.slaydera_navigatsia .avormena{
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.5);
 }
- .layout.rtl .header {
-	 box-shadow: -1px 1px 4px #9aa0b9;
+.slaydera_navigatsia .avormena a{
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  position: absolute;
+  left: 50px;
+  line-height: 60px;
+  text-decoration: none;
 }
- .sidebar {
-	 color: #b3b8d4;
-	 overflow-x: hidden !important;
-	 position: relative;
-	 background-color: #0c1e35;
+.slaydera_navigatsia .navegatus{
+  position: absolute;
+  top: 80px;
+  width:100%;
 }
- .sidebar .image-wrapper {
-	 overflow: hidden;
-	 position: absolute;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 opacity: 0.2;
-	 z-index: 1;
-	 display: none;
+.slaydera_navigatsia .navegatus li {
+  margin-top: 5px;
+  padding: 12px 18px;
 }
- .sidebar .image-wrapper > img {
-	 width: 100%;
-	 height: 100%;
-	 object-fit: cover;
-	 object-position: center;
+.slaydera_navigatsia .navegatus i{
+  color: #fdf3f3;
+  font-size: 20px;
+  padding-right: 8px;
 }
- .sidebar.has-bg-image .image-wrapper {
-	 display: block;
+.slaydera_navigatsia .navegatus a{
+  color: #fdf3f3;
+  font-size: 20px;
+  text-decoration: none;
 }
- .sidebar .sidebar-layout {
-	 height: 100%;
-	 display: flex;
-	 flex-direction: column;
-	 position: relative;
-	 z-index: 2;
+.slaydera_navigatsia .navegatus li:hover {
+  border-left: 0.8px solid #9fbdc3;
+  box-shadow: 0 0 2px rgb(214 214 214 / 50%);
 }
- .sidebar .sidebar-layout .sidebar-header {
-	 height: 64px;
-	 min-height: 64px;
-	 display: flex;
-	 align-items: center;
-	 padding: 0 20px;
-	 border-bottom: 1px solid rgba(83, 93, 125, 0.3);
+.slaydera_navigatsia .sotsialm_adukia{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  list-style: none;
+  cursor: pointer;
 }
- .sidebar .sidebar-layout .sidebar-header > span {
-	 overflow: hidden;
-	 white-space: nowrap;
-	 text-overflow: ellipsis;
+.slaydera_navigatsia .sotsialm_adukia i{
+  text-decoration: none;
+  padding: 0 5px;
+  color: #fff;
+  opacity: 0.6;
+  font-size: 20px;
 }
- .sidebar .sidebar-layout .sidebar-content {
-	 flex-grow: 1;
-	 padding: 10px 0;
+.slaydera_navigatsia .sotsialm_adukia i:hover{
+  opacity: 1;
+  transition: all 0.1s linear;
+  transform: scale(1.01);
 }
- .sidebar .sidebar-layout .sidebar-footer {
-	 height: 64px;
-	 min-height: 64px;
-	 display: flex;
-	 align-items: center;
-	 border-top: 1px solid rgba(83, 93, 125, 0.3);
-	 padding: 0 20px;
+#check{
+  display: none;
 }
- .sidebar .sidebar-layout .sidebar-footer > span {
-	 overflow: hidden;
-	 white-space: nowrap;
-	 text-overflow: ellipsis;
+.karkas_navigatora .asexon_one i{
+  color: #fdf3f3;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  left: 16px;
+  line-height: 60px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s linear;  
 }
- @keyframes swing {
-	 0%, 30%, 50%, 70%, 100% {
-		 transform: rotate(0deg);
-	}
-	 10% {
-		 transform: rotate(10deg);
-	}
-	 40% {
-		 transform: rotate(-10deg);
-	}
-	 60% {
-		 transform: rotate(5deg);
-	}
-	 80% {
-		 transform: rotate(-5deg);
-	}
+  .slaydera_navigatsia .asexon_two i{
+  font-size: 25px;
+  line-height: 60px;
+  position: absolute;
+  left: 240px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s linear;
 }
- .layout .sidebar .menu ul {
-	 list-style-type: none;
-	 padding: 0;
-	 margin: 0;
+.asexon_one i:hover{
+  font-size: 29px;
 }
- .layout .sidebar .menu .menu-item a {
-	 display: flex;
-	 align-items: center;
-	 height: 50px;
-	 padding: 0 20px;
-	 color: #b3b8d4;
+.asexon_two i:hover{
+  font-size: 24px;
 }
- .layout .sidebar .menu .menu-item a .menu-icon {
-	 font-size: 1.2rem;
-	 width: 35px;
-	 min-width: 35px;
-	 height: 35px;
-	 line-height: 35px;
-	 text-align: center;
-	 display: inline-block;
-	 margin-right: 10px;
-	 border-radius: 2px;
-	 transition: color 0.3s;
+#check:checked ~ .slaydera_navigatsia{
+  left: 0;
 }
- .layout .sidebar .menu .menu-item a .menu-icon i {
-	 display: inline-block;
+#check:checked ~ .asexon_one i{
+  opacity: 0;
 }
- .layout .sidebar .menu .menu-item a .menu-title {
-	 font-size: 0.9rem;
-	 overflow: hidden;
-	 text-overflow: ellipsis;
-	 white-space: nowrap;
-	 flex-grow: 1;
-	 transition: color 0.3s;
+#check:checked ~ .slaydera_navigatsia .asexon_two i {
+  opacity: 1;
+  color: #e7fbff;
 }
- .layout .sidebar .menu .menu-item a .menu-prefix, .layout .sidebar .menu .menu-item a .menu-suffix {
-	 display: inline-block;
-	 padding: 5px;
-	 opacity: 1;
-	 transition: opacity 0.3s;
-}
- .layout .sidebar .menu .menu-item a:hover .menu-title {
-	 color: #dee2ec;
-}
- .layout .sidebar .menu .menu-item a:hover .menu-icon {
-	 color: #dee2ec;
-}
- .layout .sidebar .menu .menu-item a:hover .menu-icon i {
-	 animation: swing ease-in-out 0.5s 1 alternate;
-}
- .layout .sidebar .menu .menu-item a:hover::after {
-	 border-color: #dee2ec !important;
-}
- .layout .sidebar .menu .menu-item.sub-menu {
-	 position: relative;
-}
- .layout .sidebar .menu .menu-item.sub-menu > a::after {
-	 content: "";
-	 transition: transform 0.3s;
-	 border-right: 2px solid currentcolor;
-	 border-bottom: 2px solid currentcolor;
-	 width: 5px;
-	 height: 5px;
-	 transform: rotate(-45deg);
-}
- .layout .sidebar .menu .menu-item.sub-menu > .sub-menu-list {
-	 padding-left: 20px;
-	 display: none;
-	 overflow: hidden;
-	 z-index: 999;
-}
- .layout .sidebar .menu .menu-item.sub-menu.open > a::after {
-	 transform: rotate(45deg);
-}
- .layout .sidebar .menu .menu-item.active > a .menu-title {
-	 color: #dee2ec;
-}
- .layout .sidebar .menu .menu-item.active > a::after {
-	 border-color: #dee2ec;
-}
- .layout .sidebar .menu .menu-item.active > a .menu-icon {
-	 color: #dee2ec;
-}
- .layout .sidebar .menu > ul > .sub-menu > .sub-menu-list {
-	 background-color: #0b1a2c;
-}
- .layout .sidebar .menu.icon-shape-circle .menu-item a .menu-icon, .layout .sidebar .menu.icon-shape-rounded .menu-item a .menu-icon, .layout .sidebar .menu.icon-shape-square .menu-item a .menu-icon {
-	 background-color: #0b1a2c;
-}
- .layout .sidebar .menu.icon-shape-circle .menu-item a .menu-icon {
-	 border-radius: 50%;
-}
- .layout .sidebar .menu.icon-shape-rounded .menu-item a .menu-icon {
-	 border-radius: 4px;
-}
- .layout .sidebar .menu.icon-shape-square .menu-item a .menu-icon {
-	 border-radius: 0;
-}
- .layout .sidebar:not(.collapsed) .menu > ul > .menu-item.sub-menu > .sub-menu-list {
-	 visibility: visible !important;
-	 position: static !important;
-	 transform: translate(0, 0) !important;
-}
- .layout .sidebar.collapsed .menu > ul > .menu-item > a .menu-prefix, .layout .sidebar.collapsed .menu > ul > .menu-item > a .menu-suffix {
-	 opacity: 0;
-}
- .layout .sidebar.collapsed .menu > ul > .menu-item.sub-menu > a::after {
-	 content: "";
-	 width: 5px;
-	 height: 5px;
-	 background-color: currentcolor;
-	 border-radius: 50%;
-	 display: inline-block;
-	 position: absolute;
-	 right: 10px;
-	 top: 50%;
-	 border: none;
-	 transform: translateY(-50%);
-}
- .layout .sidebar.collapsed .menu > ul > .menu-item.sub-menu > a:hover::after {
-	 background-color: #dee2ec;
-}
- .layout .sidebar.collapsed .menu > ul > .menu-item.sub-menu > .sub-menu-list {
-	 transition: none !important;
-	 width: 200px;
-	 margin-left: 3px !important;
-	 border-radius: 4px;
-	 display: block !important;
-}
- .layout .sidebar.collapsed .menu > ul > .menu-item.active > a::after {
-	 background-color: #dee2ec;
-}
- .layout .sidebar.has-bg-image .menu.icon-shape-circle .menu-item a .menu-icon, .layout .sidebar.has-bg-image .menu.icon-shape-rounded .menu-item a .menu-icon, .layout .sidebar.has-bg-image .menu.icon-shape-square .menu-item a .menu-icon {
-	 background-color: rgba(11, 26, 44, 0.6);
-}
- .layout .sidebar.has-bg-image:not(.collapsed) .menu > ul > .sub-menu > .sub-menu-list {
-	 background-color: rgba(11, 26, 44, 0.6);
-}
- .layout.rtl .sidebar .menu .menu-item a .menu-icon {
-	 margin-left: 10px;
-	 margin-right: 0;
-}
- .layout.rtl .sidebar .menu .menu-item.sub-menu > a::after {
-	 transform: rotate(135deg);
-}
- .layout.rtl .sidebar .menu .menu-item.sub-menu > .sub-menu-list {
-	 padding-left: 0;
-	 padding-right: 20px;
-}
- .layout.rtl .sidebar .menu .menu-item.sub-menu.open > a::after {
-	 transform: rotate(45deg);
-}
- .layout.rtl .sidebar.collapsed .menu > ul > .menu-item.sub-menu a::after {
-	 right: auto;
-	 left: 10px;
-}
- .layout.rtl .sidebar.collapsed .menu > ul > .menu-item.sub-menu > .sub-menu-list {
-	 margin-left: -3px !important;
-}
- * {
-	 box-sizing: border-box;
-}
- body {
-	 margin: 0;
-	 height: 100vh;
-	 font-family: "Roboto", sans-serif;
-	 color: #212529;
-}
- a {
-	 text-decoration: none;
-}
- @media (max-width: 992px) {
-	 #btn-collapse {
-		 display: none;
-	}
-}
- 
-  
-  
-  
+	
   
 </style>
 
-
-
-
-<div class="layout has-sidebar fixed-sidebar fixed-header">
-  <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
-    <div class="image-wrapper">
-      <img src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg" alt="sidebar background" />
-    </div>
-    <div class="sidebar-layout">
-      <div class="sidebar-header">
-        <span style="
-                text-transform: uppercase;
-                font-size: 15px;
-                letter-spacing: 3px;
-                font-weight: bold;
-              ">Pro Sidebar</span>
-      </div>
-      <div class="sidebar-content">
-        <nav class="menu open-current-submenu">
-          <ul>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-vip-diamond-fill"></i>
-                </span>
-                <span class="menu-title">Components</span>
-                <span class="menu-suffix">&#x1F525;</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Grid</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Layout</span>
-                    </a>
-                      <div class="sub-menu-list">
-                      <ul>
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Input</span>
-                          </a>
-                        </li>
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Select</span>
-                          </a>
-                        </li>
-                        <li class="menu-item sub-menu">
-                          <a href="#">
-                            <span class="menu-title">More</span>
-                          </a>
-                          <div class="sub-menu-list">
-                            <ul>
-                              <li class="menu-item">
-                                <a href="#">
-                                  <span class="menu-title">CheckBox</span>
-                                </a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="#">
-                                  <span class="menu-title">Radio</span>
-                                </a>
-                              </li>
-                              <li class="menu-item sub-menu">
-                                <a href="#">
-                                  <span class="menu-title">Want more ?</span>
-                                  <span class="menu-suffix">&#x1F914;</span>
-                                </a>
-                                <div class="sub-menu-list">
-                                  <ul>
-                                    <li class="menu-item">
-                                      <a href="#">
-                                        <span class="menu-prefix">&#127881;</span>
-                                        <span class="menu-title">You made it </span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="menu-item sub-menu">
-                    <a href="#">
-                      <span class="menu-title">Forms</span>
-                    </a>
-                    <div class="sub-menu-list">
-                      <ul>
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Input</span>
-                          </a>
-                        </li>
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Select</span>
-                          </a>
-                        </li>
-                        <li class="menu-item sub-menu">
-                          <a href="#">
-                            <span class="menu-title">More</span>
-                          </a>
-                          <div class="sub-menu-list">
-                            <ul>
-                              <li class="menu-item">
-                                <a href="#">
-                                  <span class="menu-title">CheckBox</span>
-                                </a>
-                              </li>
-                              <li class="menu-item">
-                                <a href="#">
-                                  <span class="menu-title">Radio</span>
-                                </a>
-                              </li>
-                              <li class="menu-item sub-menu">
-                                <a href="#">
-                                  <span class="menu-title">Want more ?</span>
-                                  <span class="menu-suffix">&#x1F914;</span>
-                                </a>
-                                <div class="sub-menu-list">
-                                  <ul>
-                                    <li class="menu-item">
-                                      <a href="#">
-                                        <span class="menu-prefix">&#127881;</span>
-                                        <span class="menu-title">You made it </span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-bar-chart-2-fill"></i>
-                </span>
-                <span class="menu-title">Charts</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Pie chart</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Line chart</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Bar chart</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-shopping-cart-fill"></i>
-                </span>
-                <span class="menu-title">E-commerce</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Products</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Orders</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">credit card</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-global-fill"></i>
-                </span>
-                <span class="menu-title">Maps</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Google maps</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Open street map</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item sub-menu">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-brush-3-fill"></i>
-                </span>
-                <span class="menu-title">Theme</span>
-              </a>
-              <div class="sub-menu-list">
-                <ul>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Dark</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#">
-                      <span class="menu-title">Light</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="menu-item">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-book-2-fill"></i>
-                </span>
-                <span class="menu-title">Documentation</span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-calendar-fill"></i>
-                </span>
-                <span class="menu-title">Calendar</span>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="ri-service-fill"></i>
-                </span>
-                <span class="menu-title">Examples</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="sidebar-footer"><span>Sidebar footer</span></div>
-    </div>
-  </aside>
-  <div id="overlay" class="overlay"></div>
-  <div class="layout">
-    <header class="header">
-      <a id="btn-collapse" href="#">
-        <i class="ri-menu-line ri-xl"></i>
-      </a>
-      <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
-        <i class="ri-menu-line ri-xl"></i>
-      </a>
-    </header>
- 
-      <main class="content">
-     
-      
-     
-     
-    </main>
+<body>
+div class="karkas_navigatora">
+  <input type="checkbox" id="check">
+  <div class="asexon_one">
+  <label for="check">
+  <i class="fas fa-bars"></i>
+  </label>
   </div>
-</div>
-
-
-
-<script>
-  
-  const ANIMATION_DURATION = 300;
-
-const SIDEBAR_EL = document.getElementById("sidebar");
-
-const SUB_MENU_ELS = document.querySelectorAll(
-  ".menu > ul > .menu-item.sub-menu"
-);
-
-const FIRST_SUB_MENUS_BTN = document.querySelectorAll(
-  ".menu > ul > .menu-item.sub-menu > a"
-);
-
-const INNER_SUB_MENUS_BTN = document.querySelectorAll(
-  ".menu > ul > .menu-item.sub-menu .menu-item.sub-menu > a"
-);
-
-class PopperObject {
-  instance = null;
-  reference = null;
-  popperTarget = null;
-
-  constructor(reference, popperTarget) {
-    this.init(reference, popperTarget);
-  }
-
-  init(reference, popperTarget) {
-    this.reference = reference;
-    this.popperTarget = popperTarget;
-    this.instance = Popper.createPopper(this.reference, this.popperTarget, {
-      placement: "right",
-      strategy: "fixed",
-      resize: true,
-      modifiers: [
-        {
-          name: "computeStyles",
-          options: {
-            adaptive: false
-          }
-        },
-        {
-          name: "flip",
-          options: {
-            fallbackPlacements: ["left", "right"]
-          }
-        }
-      ]
-    });
-
-    document.addEventListener(
-      "click",
-      (e) => this.clicker(e, this.popperTarget, this.reference),
-      false
-    );
-
-    const ro = new ResizeObserver(() => {
-      this.instance.update();
-    });
-
-    ro.observe(this.popperTarget);
-    ro.observe(this.reference);
-  }
-
-  clicker(event, popperTarget, reference) {
-    if (
-      SIDEBAR_EL.classList.contains("collapsed") &&
-      !popperTarget.contains(event.target) &&
-      !reference.contains(event.target)
-    ) {
-      this.hide();
-    }
-  }
-
-  hide() {
-    this.instance.state.elements.popper.style.visibility = "hidden";
-  }
-}
-
-class Poppers {
-  subMenuPoppers = [];
-
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    SUB_MENU_ELS.forEach((element) => {
-      this.subMenuPoppers.push(
-        new PopperObject(element, element.lastElementChild)
-      );
-      this.closePoppers();
-    });
-  }
-
-  togglePopper(target) {
-    if (window.getComputedStyle(target).visibility === "hidden")
-      target.style.visibility = "visible";
-    else target.style.visibility = "hidden";
-  }
-
-  updatePoppers() {
-    this.subMenuPoppers.forEach((element) => {
-      element.instance.state.elements.popper.style.display = "none";
-      element.instance.update();
-    });
-  }
-
-  closePoppers() {
-    this.subMenuPoppers.forEach((element) => {
-      element.hide();
-    });
-  }
-}
-
-const slideUp = (target, duration = ANIMATION_DURATION) => {
-  const { parentElement } = target;
-  parentElement.classList.remove("open");
-  target.style.transitionProperty = "height, margin, padding";
-  target.style.transitionDuration = `${duration}ms`;
-  target.style.boxSizing = "border-box";
-  target.style.height = `${target.offsetHeight}px`;
-  target.offsetHeight;
-  target.style.overflow = "hidden";
-  target.style.height = 0;
-  target.style.paddingTop = 0;
-  target.style.paddingBottom = 0;
-  target.style.marginTop = 0;
-  target.style.marginBottom = 0;
-  window.setTimeout(() => {
-    target.style.display = "none";
-    target.style.removeProperty("height");
-    target.style.removeProperty("padding-top");
-    target.style.removeProperty("padding-bottom");
-    target.style.removeProperty("margin-top");
-    target.style.removeProperty("margin-bottom");
-    target.style.removeProperty("overflow");
-    target.style.removeProperty("transition-duration");
-    target.style.removeProperty("transition-property");
-  }, duration);
-};
-const slideDown = (target, duration = ANIMATION_DURATION) => {
-  const { parentElement } = target;
-  parentElement.classList.add("open");
-  target.style.removeProperty("display");
-  let { display } = window.getComputedStyle(target);
-  if (display === "none") display = "block";
-  target.style.display = display;
-  const height = target.offsetHeight;
-  target.style.overflow = "hidden";
-  target.style.height = 0;
-  target.style.paddingTop = 0;
-  target.style.paddingBottom = 0;
-  target.style.marginTop = 0;
-  target.style.marginBottom = 0;
-  target.offsetHeight;
-  target.style.boxSizing = "border-box";
-  target.style.transitionProperty = "height, margin, padding";
-  target.style.transitionDuration = `${duration}ms`;
-  target.style.height = `${height}px`;
-  target.style.removeProperty("padding-top");
-  target.style.removeProperty("padding-bottom");
-  target.style.removeProperty("margin-top");
-  target.style.removeProperty("margin-bottom");
-  window.setTimeout(() => {
-    target.style.removeProperty("height");
-    target.style.removeProperty("overflow");
-    target.style.removeProperty("transition-duration");
-    target.style.removeProperty("transition-property");
-  }, duration);
-};
-
-const slideToggle = (target, duration = ANIMATION_DURATION) => {
-  if (window.getComputedStyle(target).display === "none")
-    return slideDown(target, duration);
-  return slideUp(target, duration);
-};
-
-const PoppersInstance = new Poppers();
-
-/**
- * wait for the current animation to finish and update poppers position
- */
-const updatePoppersTimeout = () => {
-  setTimeout(() => {
-    PoppersInstance.updatePoppers();
-  }, ANIMATION_DURATION);
-};
-
-/**
- * sidebar collapse handler
- */
-document.getElementById("btn-collapse").addEventListener("click", () => {
-  SIDEBAR_EL.classList.toggle("collapsed");
-  PoppersInstance.closePoppers();
-  if (SIDEBAR_EL.classList.contains("collapsed"))
-    FIRST_SUB_MENUS_BTN.forEach((element) => {
-      element.parentElement.classList.remove("open");
-    });
-
-  updatePoppersTimeout();
-});
-
-/**
- * sidebar toggle handler (on break point )
- */
-document.getElementById("btn-toggle").addEventListener("click", () => {
-  SIDEBAR_EL.classList.toggle("toggled");
-
-  updatePoppersTimeout();
-});
-
-/**
- * toggle sidebar on overlay click
- */
-document.getElementById("overlay").addEventListener("click", () => {
-  SIDEBAR_EL.classList.toggle("toggled");
-});
-
-const defaultOpenMenus = document.querySelectorAll(".menu-item.sub-menu.open");
-
-defaultOpenMenus.forEach((element) => {
-  element.lastElementChild.style.display = "block";
-});
-
-/**
- * handle top level submenu click
- */
-FIRST_SUB_MENUS_BTN.forEach((element) => {
-  element.addEventListener("click", () => {
-    if (SIDEBAR_EL.classList.contains("collapsed"))
-      PoppersInstance.togglePopper(element.nextElementSibling);
-    else {
-      const parentMenu = element.closest(".menu.open-current-submenu");
-      if (parentMenu)
-        parentMenu
-          .querySelectorAll(":scope > ul > .menu-item.sub-menu > a")
-          .forEach(
-            (el) =>
-              window.getComputedStyle(el.nextElementSibling).display !==
-                "none" && slideUp(el.nextElementSibling)
-          );
-      slideToggle(element.nextElementSibling);
-    }
-  });
-});
-
-/**
- * handle inner submenu click
- */
-INNER_SUB_MENUS_BTN.forEach((element) => {
-  element.addEventListener("click", () => {
-    slideToggle(element.nextElementSibling);
-  });
-});
-
-  
-  
-</script>
-
-
-
-
-
-
+  <div class="slaydera_navigatsia">
+  <div class="avormena">
+  <a href="#">Навигация</a>
+  </div>
+  <div class="asexon_two">
+  <label for="check">
+  <i class="fas fa-times"></i>
+  </label>
+  </div>
+  <div class="navegatus">
+  <ul>
+   
+  <li>
+  <i class="fas fa fa-cog"></i>
+  <a href="#">Каталоги</a>
+  </li>
+  <li>
+  <i class="fas fa fa-database"></i>
+  <a href="#">Разделы</a>
+  </li>
+  <li>
+  <i class="fas fa-binoculars"></i>
+  <a href="#">Оформление</a>
+  </li>
+  <li>
+  <i class="fas fa-download"></i>
+  <a href="#">Дизайнер</a>
+  </li>
+  <li>
+  <i class="fas fa-cloud"></i>
+  <a href="#">веб-мастер</a>
+  </li>
+  <li>
+  <i class="fas fa-phone-volume"></i>
+  <a href="#">Ваши контакты</a>
+  </li>
+  <li>
+  <i class="far fa-comments"></i>
+  <a href="#">Обратная связь</a>
+  </li>
+  </ul>
+  </div>
+  <div class="sotsialm_adukia">
+  <ul>
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-twitter"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-youtube"></i></a>
+  </ul>
+  </div>
+  </div>
+  </div>
+</body>
