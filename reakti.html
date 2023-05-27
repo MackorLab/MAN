@@ -10,6 +10,64 @@
     <script src="https://unpkg.com/react-dom@16.14.0/umd/react-dom.development.js"></script>
 
     <script>
-      // ваш JavaScript-код, использующий React
+    
+      
+      
+    import React, { useState } from 'react';
+
+function Form() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = { name, email, phone };
+    await fetch('/submit-form', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    window.location.href = `${window.location.pathname}?pbs=1&gdf=2&lmk=3`;
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <label htmlFor="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <label htmlFor="phone">Phone</label>
+      <input
+        type="tel"
+        id="phone"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default Form;  
+      
+      
+      
+      
+      
+      
     </script>
   </body>
